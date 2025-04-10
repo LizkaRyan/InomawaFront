@@ -1,24 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {IonicModule} from '@ionic/angular';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 
 @Component({
-  selector: 'app-login-user',
-  templateUrl: './login-user.page.html',
-  styleUrls: ['./login-user.page.scss'],
-  standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+    selector: 'app-login-user',
+    templateUrl: './login-user.page.html',
+    styleUrls: ['./login-user.page.scss'],
+    standalone: true,
+    imports: [IonicModule, CommonModule, FormsModule]
 })
 export class LoginUserPage implements OnInit {
-  showPassword = false;
+    showPassword = false;
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
-  togglePasswordVisibility() {
-    this.showPassword = !this.showPassword;
-  }
+    togglePasswordVisibility() {
+        this.showPassword = !this.showPassword;
+    }
+
+    loginUser() {
+        window.location.href = "";
+    }
 }
