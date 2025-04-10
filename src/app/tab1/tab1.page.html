@@ -1,17 +1,32 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title>Inomawa</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <!-- Logo -->
+  <div class="logo-container">
+    <div class="logo">inomawa</div>
+  </div>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <!-- Illustration -->
+  <div class="illustration-container">
+    <div class="greeting">Bonjour !</div>
+    <div class="illustration">
+      <img src="/api/placeholder/240/240" alt="Illustration d'une personne arrosant une plante" />
+    </div>
+  </div>
+
+  <!-- Instructions -->
+  <div class="text-instruction">
+    Choisissez un type de compte et<br />
+    Connectez-vous
+  </div>
+
+  <!-- Boutons -->
+  <div class="button-container">
+    <button class="button service-button">Je veux un service</button>
+    <button class="button worker-button">Je suis un travailleur</button>
+  </div>
 </ion-content>
