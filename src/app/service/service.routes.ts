@@ -13,6 +13,10 @@ export const routes: Routes = [
         path: 'worker',
         loadComponent: () =>
           import('./worker/worker.page').then((m) => m.WorkerPage),
+      },
+      {
+        path: 'request',
+        loadComponent: () => import('./request/request.page').then( m => m.RequestPage)
       }
     ],
   }
