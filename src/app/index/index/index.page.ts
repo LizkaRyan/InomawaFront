@@ -17,4 +17,11 @@ export class IndexPage implements OnInit {
   ngOnInit() {
   }
 
+  hrefLoginUser(){
+    window.location.href = '/login/user';
+  }
+
+  hrefLoginWorker(){
+    window.location.href = '/login/worker';
+  }
 }
