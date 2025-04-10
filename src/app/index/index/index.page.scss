@@ -1,18 +1,17 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   font-family: 'Arial', sans-serif;
 }
 
-body {
-  background-color: #c9e3ff;
+ion-content {
+  --background: #c9e3ff;
+  --padding-top: 40px;
+  --padding-bottom: 40px;
+  --padding-start: 20px;
+  --padding-end: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   min-height: 100vh;
-  padding: 40px 20px;
 }
 
 .logo-container {
@@ -23,27 +22,28 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
+  margin: 0 auto 30px;
 }
 
 .logo {
   color: white;
   font-size: 28px;
   font-weight: bold;
-}
-
-.logo::after {
-  content: "";
   position: relative;
-  display: inline-block;
-  width: 20px;
-  height: 15px;
-  background: linear-gradient(to right, transparent 50%, white 50%);
-  background-size: 200% 100%;
-  background-position: right;
-  margin-left: 6px;
-  border-radius: 50%;
-  transform: rotate(-30deg);
+
+  &::after {
+    content: "";
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+    background: linear-gradient(to right, transparent 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right;
+    margin-left: 6px;
+    border-radius: 50%;
+    transform: rotate(-30deg);
+  }
 }
 
 .illustration-container {
@@ -67,6 +67,11 @@ body {
   width: 240px;
   height: 240px;
   position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .text-instruction {
@@ -83,22 +88,22 @@ body {
   flex-direction: column;
   gap: 15px;
   max-width: 280px;
+  margin: 0 auto;
 }
 
-.button {
-  padding: 15px;
-  border-radius: 8px;
-  text-align: center;
-  color: white;
+ion-button {
+  height: 50px;
   font-weight: bold;
-  cursor: pointer;
-  border: none;
+  --border-radius: 8px;
+  margin: 0;
 }
 
 .service-button {
-  background-color: #e63333;
+  --background: #e63333;
+  --color: white;
 }
 
 .worker-button {
-  background-color: #005577;
+  --background: #005577;
+  --color: white;
 }
