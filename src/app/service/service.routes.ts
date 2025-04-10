@@ -10,10 +10,10 @@ export const routes: Routes = [
           import('./category/category.page').then((m) => m.CategoryPage),
       },
       {
-        path: 'request/:idCategory',
+        path: 'worker',
         loadComponent: () =>
-          import('./category/category.page').then((m) => m.CategoryPage),
-      },
+          import('./worker/worker.page').then((m) => m.WorkerPage),
+      }
     ],
   }
 ];

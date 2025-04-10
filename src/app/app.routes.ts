@@ -7,7 +7,7 @@ export const routes: Routes = [
     loadChildren: () => import('./index/index.routes').then((m) => m.routes),
   },
   {
-    path: 'category',
+    path: 'service',
     loadChildren: () => import('./service/service.routes').then( m => m.routes)
   },
 ];
