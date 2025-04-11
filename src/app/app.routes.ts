@@ -10,4 +10,9 @@ export const routes: Routes = [
     path: 'service',
     loadChildren: () => import('./service/service.routes').then( m => m.routes)
   },
+  {
+    path: 'worker',
+    loadChildren: () => import('./worker/worker.routes').then( m => m.routes)
+  },
+
 ];
