@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
+import {Router} from "@angular/router";
 
 interface Category {
   id: number;
@@ -28,12 +29,12 @@ export class CategoryPage implements OnInit {
     // Vous pouvez ajouter d'autres catégories si nécessaire
   ];
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
   askService(id: number) {
-    
+    this.router.navigate(['/service/request']);
   }
 }

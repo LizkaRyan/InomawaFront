@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Location } from '@angular/common';
 import {IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonTitle, IonToolbar} from '@ionic/angular/standalone';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-resume',
@@ -30,7 +31,7 @@ export class ResumePage implements OnInit {
       details: '*** 4251'
     }
   };
-  constructor(private location: Location) { }
+  constructor(private location: Location, private router: Router) { }
 
   ngOnInit() {
   }
@@ -48,7 +49,7 @@ export class ResumePage implements OnInit {
   }
 
   confirmReservation() {
-    console.log('Confirm reservation');
+    this.router.navigate(['/service/confirmation'])
   }
 
 }

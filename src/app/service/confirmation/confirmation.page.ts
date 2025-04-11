@@ -37,7 +37,7 @@ export class ConfirmationPage implements OnInit {
 
   returnToHome() {
     // Navigate to home page
-    this.router.navigate(['/home']);
+    this.router.navigate(['/service']);
   }
 
 }
