@@ -25,11 +25,15 @@ export const routes: Routes = [
       {
         path: 'resume',
         loadComponent: () => import('./resume/resume.page').then( m => m.ResumePage)
+      },
+      {
+        path: 'confirmation',
+        loadComponent: () => import('./confirmation/confirmation.page').then( m => m.ConfirmationPage)
+      },
+      {
+        path: 'done',
+        loadComponent: () => import('./done/done.page').then( m => m.DonePage)
       }
     ],
-  },
-  {
-    path: 'confirmation',
-    loadComponent: () => import('./confirmation/confirmation.page').then( m => m.ConfirmationPage)
   }
 ];
