@@ -23,4 +23,8 @@ export const routes: Routes = [
       },
     ],
   },
+  {
+    path: 'done',
+    loadComponent: () => import('./done/done.page').then( m => m.DonePage)
+  },
 ];
