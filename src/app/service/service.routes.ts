@@ -21,6 +21,10 @@ export const routes: Routes = [
       {
         path: 'request',
         loadComponent: () => import('./request/request.page').then( m => m.RequestPage)
+      },
+      {
+        path: 'resume',
+        loadComponent: () => import('./resume/resume.page').then( m => m.ResumePage)
       }
     ],
   }
