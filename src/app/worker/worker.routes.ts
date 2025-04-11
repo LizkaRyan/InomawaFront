@@ -9,10 +9,14 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./dashboard/dashboard.page').then((m) => m.DashboardPage),
       },
+      {
+        path: 'reservation',
+        loadComponent: () => import('./reservation/reservation.page').then( m => m.ReservationPage)
+      },
+      {
+        path: 'profile',
+        loadComponent: () => import('./profile/profile.page').then( m => m.ProfilePage)
+      },
     ],
-  },
-  {
-    path: 'reservation',
-    loadComponent: () => import('./reservation/reservation.page').then( m => m.ReservationPage)
-  }
+  },
 ];
