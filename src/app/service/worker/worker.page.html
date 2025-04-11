@@ -1,0 +1,79 @@
+<ion-content class="workers-page">
+  <div class="header">
+    <ion-buttons class="back-button">
+      <ion-button>
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <div class="title">Travailleurs accessibles</div>
+    <ion-buttons class="filter-button">
+      <ion-button>
+        <ion-icon name="filter-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div>
+
+  <div class="workers-list">
+    <div class="worker-card" *ngFor="let worker of workers">
+      <div class="worker-info">
+        <div class="worker-image">
+          <img [src]="worker.image" [alt]="worker.name">
+        </div>
+        <div class="worker-details">
+          <h3 class="worker-name">{{ worker.name }}</h3>
+
+          <div class="worker-skills">
+            <div class="skill-column">
+              <div class="skill" *ngFor="let skill of worker.skills.slice(0, 2)">
+                <ion-icon name="ellipse" class="bullet"></ion-icon>
+                {{ skill }}
+              </div>
+            </div>
+            <div class="skill-column">
+              <div class="skill" *ngFor="let skill of worker.skills.slice(2, 4)">
+                <ion-icon name="ellipse" class="bullet" *ngIf="skill"></ion-icon>
+                {{ skill }}
+              </div>
+            </div>
+          </div>
+
+          <div class="worker-rating">
+            <ion-icon name="star" class="star-icon"></ion-icon>
+            <span>{{ worker.rating }}</span>
+          </div>
+
+          <div class="worker-price">
+            {{ worker.price }} Ar
+          </div>
+
+          <div class="action-buttons">
+            <a (click)="showDetails(worker.id)" class="details-link">détails</a>
+            <ion-button class="reserve-button" (click)="reserveWorker(worker)">
+              Réserver
+            </ion-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ion-footer class="app-footer">
+    <ion-toolbar>
+      <ion-buttons slot="start" class="footer-button">
+        <ion-button routerLink="/home">
+          <ion-icon name="home"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="center" class="footer-button">
+        <ion-button>
+          <ion-icon name="menu"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end" class="footer-button">
+        <ion-button>
+          <ion-icon name="chatbubble-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>

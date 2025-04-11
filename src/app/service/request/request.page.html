@@ -1,0 +1,87 @@
+<ion-content class="problem-page">
+  <div class="header">
+    <ion-buttons class="back-button">
+      <ion-button>
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <div class="title">Tuyau cassé</div>
+    <div class="spacer"></div>
+  </div>
+
+  <div class="form-container">
+    <div class="form-group">
+      <label>Décrivez votre problème</label>
+      <ion-textarea
+        placeholder="ex. J'ai une fuite d'eau dans la cour"
+        rows="5"
+        class="description-textarea"
+        [(ngModel)]="problemDescription"
+      ></ion-textarea>
+    </div>
+
+    <div class="date-time-group">
+      <div class="form-group half">
+        <label>Date</label>
+        <div class="date-picker">
+          <ion-input type="text" placeholder="dd/mm/yy" [(ngModel)]="selectedDate"></ion-input>
+          <ion-icon name="calendar-outline"></ion-icon>
+        </div>
+      </div>
+
+      <div class="form-group half">
+        <label>Heure</label>
+        <div class="time-picker">
+          <ion-input type="text" placeholder="00:00 AM" [(ngModel)]="selectedTime"></ion-input>
+          <ion-icon name="time-outline"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Attachez des photos</label>
+      <div class="photos-container">
+        <div class="photo-grid">
+          <ng-container *ngIf="selectedPhotos.length > 0">
+            <div class="photo-item" *ngFor="let photo of selectedPhotos; let i = index">
+              <img [src]="photo" alt="Photo du problème">
+              <div class="remove-photo" (click)="removePhoto(i)">
+                <ion-icon name="close-circle"></ion-icon>
+              </div>
+            </div>
+          </ng-container>
+          <div class="add-photo" (click)="addPhoto()">
+            <ion-icon name="add"></ion-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="submit-button-container">
+      <ion-button expand="block" class="submit-button" (click)="searchWorker()">
+        Chercher un travailleur accessible
+        <ion-icon name="arrow-forward" slot="end"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+
+  <ion-footer class="app-footer">
+    <ion-toolbar>
+      <ion-buttons slot="start" class="footer-button">
+        <ion-button routerLink="/home">
+          <ion-icon name="home"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="center" class="footer-button">
+        <ion-button>
+          <ion-icon name="menu"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end" class="footer-button">
+        <ion-button>
+          <ion-icon name="chatbubble-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>

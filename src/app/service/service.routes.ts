@@ -10,10 +10,26 @@ export const routes: Routes = [
           import('./category/category.page').then((m) => m.CategoryPage),
       },
       {
-        path: 'request/:idCategory',
+        path: 'worker',
         loadComponent: () =>
-          import('./category/category.page').then((m) => m.CategoryPage),
+          import('./worker/worker.page').then((m) => m.WorkerPage),
       },
+      {
+        path: 'worker/:idWorker',
+        loadComponent: () => import('./worker-profile/worker-profile.page').then( m => m.WorkerProfilePage)
+      },
+      {
+        path: 'request',
+        loadComponent: () => import('./request/request.page').then( m => m.RequestPage)
+      },
+      {
+        path: 'resume',
+        loadComponent: () => import('./resume/resume.page').then( m => m.ResumePage)
+      }
     ],
+  },
+  {
+    path: 'confirmation',
+    loadComponent: () => import('./confirmation/confirmation.page').then( m => m.ConfirmationPage)
   }
 ];
