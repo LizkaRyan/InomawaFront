@@ -13,10 +13,9 @@ export const routes: Routes = [
   {
     path: 'worker',
     loadChildren: () => import('./worker/worker.routes').then( m => m.routes)
-  },  {
-    path: 'reservation',
-    loadComponent: () => import('./customer/reservation/reservation.page').then( m => m.ReservationPage)
   },
-
-
+  {
+    path: 'customer',
+    loadChildren: () => import('./customer/customer.routes').then( m => m.routes)
+  }
 ];
