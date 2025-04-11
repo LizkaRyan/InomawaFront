@@ -11,6 +11,7 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
+import {Router} from "@angular/router";
 
 interface Worker {
   id: number;
@@ -73,7 +74,7 @@ export class WorkerPage implements OnInit {
   ];
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     // // Vous pouvez récupérer les données du problème si nécessaire
@@ -92,5 +93,11 @@ export class WorkerPage implements OnInit {
     // this.router.navigate(['/reservation-confirmation'], {
     //   state: { worker }
     // });
+  }
+
+  showDetails(id: number) {
+    this.router.navigate(['/service/worker/'+id], {
+
+    });
   }
 }

@@ -47,7 +47,7 @@
           </div>
 
           <div class="action-buttons">
-            <a href="#" class="details-link">détails</a>
+            <a (click)="showDetails(worker.id)" class="details-link">détails</a>
             <ion-button class="reserve-button" (click)="reserveWorker(worker)">
               Réserver
             </ion-button>
