@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {IonicModule} from '@ionic/angular';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-login-user',
@@ -13,7 +14,7 @@ import {FormsModule} from '@angular/forms';
 export class LoginUserPage implements OnInit {
     showPassword = false;
 
-    constructor() {
+    constructor(private router:Router) {
     }
 
     ngOnInit() {
@@ -24,6 +25,6 @@ export class LoginUserPage implements OnInit {
     }
 
     loginUser() {
-        window.location.href = "";
+        this.router.navigate(['/service']);
     }
 }

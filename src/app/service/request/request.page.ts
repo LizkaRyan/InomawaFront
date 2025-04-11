@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Location } from '@angular/common';
 import {
   IonButton,
   IonButtons,
@@ -28,7 +29,7 @@ export class RequestPage implements OnInit {
     'assets/images/problems/pipe2.jpg'
   ]; // Photos pré-chargées comme exemple
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,private location:Location) {}
 
   ngOnInit() {
     // Initialiser avec la date et l'heure actuelle
@@ -87,4 +88,7 @@ export class RequestPage implements OnInit {
     });
   }
 
+  goBack() {
+    this.location.back();
+  }
 }

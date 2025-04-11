@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Location } from '@angular/common';
 import {
   IonButton,
   IonButtons,
   IonContent,
   IonFooter,
-  IonHeader,
   IonIcon,
-  IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
 import {Router} from "@angular/router";
@@ -74,7 +73,7 @@ export class WorkerPage implements OnInit {
   ];
 
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private location:Location) { }
 
   ngOnInit() {
     // // Vous pouvez récupérer les données du problème si nécessaire
@@ -87,17 +86,16 @@ export class WorkerPage implements OnInit {
   }
 
   reserveWorker(worker: any) {
-    console.log('Réservation du travailleur:', worker);
-    // Implémentez la logique de réservation ici
-    // Par exemple, naviguer vers une page de confirmation
-    // this.router.navigate(['/reservation-confirmation'], {
-    //   state: { worker }
-    // });
+    this.router.navigate(['/service/resume'], {
+      state: { worker }
+    });
   }
 
   showDetails(id: number) {
-    this.router.navigate(['/service/worker/'+id], {
+    this.router.navigate(['/service/worker/'+id]);
+  }
 
-    });
+  goBack() {
+    this.location.back();
   }
 }
