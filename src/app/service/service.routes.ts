@@ -27,5 +27,9 @@ export const routes: Routes = [
         loadComponent: () => import('./resume/resume.page').then( m => m.ResumePage)
       }
     ],
+  },
+  {
+    path: 'confirmation',
+    loadComponent: () => import('./confirmation/confirmation.page').then( m => m.ConfirmationPage)
   }
 ];
