@@ -23,13 +23,14 @@ import {
   documentTextOutline,
   chatbubbleOutline
 } from 'ionicons/icons';
+import {TabCustomerComponent} from "../../shared/tab-customer/tab-customer.component";
 
 @Component({
   selector: 'app-done',
   templateUrl: './done.page.html',
   styleUrls: ['./done.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonButton, IonIcon, IonFooter, IonTabs, IonTabBar, IonTabButton, IonBadge]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonButton, IonIcon, IonFooter, IonTabs, IonTabBar, IonTabButton, IonBadge, TabCustomerComponent]
 })
 export class DonePage implements OnInit {
 

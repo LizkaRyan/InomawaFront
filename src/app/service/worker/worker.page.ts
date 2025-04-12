@@ -21,6 +21,7 @@ import {
   chatbubbleOutline
 } from 'ionicons/icons';
 import {addIcons} from "ionicons";
+import {TabCustomerComponent} from "../../shared/tab-customer/tab-customer.component";
 
 interface Worker {
   id: number;
@@ -36,7 +37,7 @@ interface Worker {
   templateUrl: './worker.page.html',
   styleUrls: ['./worker.page.scss'],
   standalone: true,
-  imports: [IonContent, IonToolbar, CommonModule, FormsModule, IonButtons, IonButton, IonIcon, IonFooter]
+  imports: [IonContent, IonToolbar, CommonModule, FormsModule, IonButtons, IonButton, IonIcon, IonFooter, TabCustomerComponent]
 })
 export class WorkerPage implements OnInit {
   workers: Worker[] = [

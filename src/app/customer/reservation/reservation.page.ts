@@ -11,13 +11,27 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
+import {TabCustomerComponent} from "../../shared/tab-customer/tab-customer.component";
+import { addIcons } from 'ionicons';
+import {
+  searchOutline,
+  locationOutline,
+  star,
+  call,
+  chatbubbleOutline,
+  closeCircle,
+  // Icônes potentielles du composant app-tab-customer
+  homeOutline,
+  documentTextOutline,
+  chatbubbleEllipsesOutline
+} from 'ionicons/icons';
 
 @Component({
   selector: 'app-reservation',
   templateUrl: './reservation.page.html',
   styleUrls: ['./reservation.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonSearchbar, IonIcon, IonAvatar, IonButton, IonBadge, IonFooter, IonTabs, IonTabBar, IonTabButton, IonSelect, IonSelectOption, IonItem]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonIcon, IonAvatar, IonButton, IonBadge, IonFooter, IonSelect, IonSelectOption, IonItem, TabCustomerComponent]
 })
 export class ReservationPage implements OnInit {
   filterValue="";
@@ -75,7 +89,20 @@ export class ReservationPage implements OnInit {
 
   reservationFiltered:any=this.reservations;
 
-  constructor() {}
+  constructor() {
+    addIcons({
+      searchOutline,      // Icône de recherche
+      locationOutline,    // Icône de localisation
+      star,               // Icône étoile (évaluations)
+      call,               // Icône d'appel
+      chatbubbleOutline,  // Icône de message
+      closeCircle,        // Icône de fermeture
+      // Ajoutez aussi les icônes du footer si nécessaire
+      homeOutline,
+      documentTextOutline,
+      chatbubbleEllipsesOutline
+    });
+  }
 
   ngOnInit(): void {
 

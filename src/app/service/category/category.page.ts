@@ -10,6 +10,7 @@ import {
   menu,
   chatbubbleOutline
 } from 'ionicons/icons';
+import {TabCustomerComponent} from "../../shared/tab-customer/tab-customer.component";
 
 interface Category {
   id: number;
@@ -22,7 +23,7 @@ interface Category {
   templateUrl: './category.page.html',
   styleUrls: ['./category.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule, TabCustomerComponent]
 })
 export class CategoryPage implements OnInit {
   categories: Category[] = [

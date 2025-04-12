@@ -29,14 +29,15 @@ import {
   add,
   closeCircle,
   timeOutline
-} from 'ionicons/icons'; // Import des icônes
+} from 'ionicons/icons';
+import {TabCustomerComponent} from "../../shared/tab-customer/tab-customer.component"; // Import des icônes
 
 @Component({
   selector: 'app-request',
   templateUrl: './request.page.html',
   styleUrls: ['./request.page.scss'],
   standalone: true,
-  imports: [IonContent, IonToolbar, CommonModule, FormsModule, IonButton, IonButtons, IonIcon, IonFooter, IonTextarea, IonInput]
+  imports: [IonContent, IonToolbar, CommonModule, FormsModule, IonButton, IonButtons, IonIcon, IonFooter, IonTextarea, IonInput, TabCustomerComponent]
 })
 export class RequestPage implements OnInit {
   problemDescription: string = '';

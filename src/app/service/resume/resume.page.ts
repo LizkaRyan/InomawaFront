@@ -2,7 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Location } from '@angular/common';
-import {IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonTitle, IonToolbar} from '@ionic/angular/standalone';
+import {
+  IonButton,
+  IonButtons,
+  IonContent,
+  IonFooter,
+  IonHeader,
+  IonIcon,
+  IonTitle,
+  IonToolbar
+} from '@ionic/angular/standalone';
 import {Router} from "@angular/router";
 import { addIcons } from 'ionicons'; // Import ajouté
 import {
@@ -14,14 +23,15 @@ import {
   cardOutline,
   documentTextOutline,
   createOutline
-} from 'ionicons/icons'; // Import des icônes
+} from 'ionicons/icons';
+import {TabCustomerComponent} from "../../shared/tab-customer/tab-customer.component"; // Import des icônes
 
 @Component({
   selector: 'app-resume',
   templateUrl: './resume.page.html',
   styleUrls: ['./resume.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonButtons, IonIcon]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonButtons, IonIcon, IonFooter, TabCustomerComponent]
 })
 export class ResumePage implements OnInit {
   serviceRequest = {

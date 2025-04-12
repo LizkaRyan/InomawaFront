@@ -2,7 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonTitle, IonToolbar} from "@ionic/angular/standalone";
+import {
+  IonButton,
+  IonButtons,
+  IonContent,
+  IonFooter,
+  IonHeader,
+  IonIcon,
+  IonTitle,
+  IonToolbar
+} from "@ionic/angular/standalone";
 import {Router} from "@angular/router";
 import { addIcons } from 'ionicons';
 import {
@@ -14,6 +23,7 @@ import {
   chatbubbleOutline,
   calendarOutline
 } from 'ionicons/icons';
+import {TabCustomerComponent} from "../../shared/tab-customer/tab-customer.component";
 
 @Component({
   selector: 'app-worker-profile',
@@ -29,7 +39,9 @@ import {
     IonTitle,
     IonContent,
     CommonModule,
-    FormsModule
+    FormsModule,
+    IonFooter,
+    TabCustomerComponent
   ]
 })
 export class WorkerProfilePage implements OnInit {
