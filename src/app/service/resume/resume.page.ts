@@ -18,7 +18,8 @@ export class ResumePage implements OnInit {
     description: 'Fuites, coupure d\'eau, installation',
     date: '18 Dec, 2024',
     time: '09:30 am',
-    price: '5 000 Ar/h',
+    price: '5 000',
+    image: '',
     plumber: {
       name: 'Rakoto Salomon',
       rating: 4.5,
@@ -31,9 +32,15 @@ export class ResumePage implements OnInit {
       details: '*** 4251'
     }
   };
+
   constructor(private location: Location, private router: Router) { }
 
   ngOnInit() {
+    this.serviceRequest.plumber.name = history.state.worker.name;
+    this.serviceRequest.plumber.image = history.state.worker.image;
+    this.serviceRequest.price = history.state.worker.price;
+    this.serviceRequest.type = history.state.category.name;
+    this.serviceRequest.image = history.state.category.image;
   }
 
   goBack() {

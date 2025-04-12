@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import {IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonTitle, IonToolbar} from "@ionic/angular/standalone";
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-worker-profile',
   templateUrl: './worker-profile.page.html',
@@ -13,25 +16,28 @@ import {IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonTitle, IonTool
     IonButton,
     IonIcon,
     IonTitle,
-    IonContent
+    IonContent,
+    CommonModule,
+    FormsModule
   ]
 })
 export class WorkerProfilePage implements OnInit {
   plumber = {
     name: 'Rakoto Salomon',
-    rate: '5 000 Ar/h',
+    price: '5 000',
     description: 'Expert en plomberie et en tuyauterie. Salomon répare rapidement les fuites d\'eau et installe vos équipements avec précision. Disponible 24/7, il garantit un service fiable et efficace pour éviter tout dégât des eaux !',
     completedJobs: 23,
+    image: 'img',
     rating: 4.5,
     projects: [
       {
-        image: 'assets/images/bathroom.jpg',
+        image: 'assets/images/work/work1.jpg',
       },
       {
-        image: 'assets/images/kitchen.jpg',
+        image: 'assets/images/work/work2.jpg',
       },
       {
-        image: 'assets/images/pipes.jpg',
+        image: 'assets/images/work/work3.jpg',
       }
     ],
     reviews: [
@@ -48,9 +54,14 @@ export class WorkerProfilePage implements OnInit {
     ],
   };
 
-  constructor(private location: Location) { }
+  category={}
+
+  constructor(private location: Location,private router:Router) { }
 
   ngOnInit() {
+    this.plumber.name = history.state.worker.name;
+    this.plumber.image = history.state.worker.image;
+    this.category = history.state.category;
   }
 
   goBack() {
@@ -66,7 +77,12 @@ export class WorkerProfilePage implements OnInit {
   }
 
   makeReservation() {
-    console.log('Make reservation');
+    this.router.navigate(['/service/resume'],{
+      state: {
+        worker: this.plumber,
+        category: this.category,
+      },
+    })
   }
 
 }

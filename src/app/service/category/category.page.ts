@@ -34,7 +34,9 @@ export class CategoryPage implements OnInit {
   ngOnInit() {
   }
 
-  askService(id: number) {
-    this.router.navigate(['/service/request']);
+  askService(category: Category) {
+    this.router.navigate(['/service/request'],{
+      state: { category: category },
+    });
   }
 }

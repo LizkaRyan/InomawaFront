@@ -25,9 +25,14 @@ export class RequestPage implements OnInit {
   selectedDate: string = '';
   selectedTime: string = '';
   selectedPhotos: string[] = [
-    'assets/images/problems/pipe1.jpg',
-    'assets/images/problems/pipe2.jpg'
+    'assets/images/issue/issue1.jpg',
+    'assets/images/issue/issue2.jpg'
   ]; // Photos pré-chargées comme exemple
+
+  category={
+    name: "",
+    image: ""
+  }
 
   constructor(private router: Router,private location:Location) {}
 
@@ -36,6 +41,7 @@ export class RequestPage implements OnInit {
     const now = new Date();
     this.selectedDate = this.formatDate(now);
     this.selectedTime = this.formatTime(now);
+    this.category = history.state.category;
   }
 
   formatDate(date: Date): string {
@@ -83,7 +89,8 @@ export class RequestPage implements OnInit {
         description: this.problemDescription,
         date: this.selectedDate,
         time: this.selectedTime,
-        photos: this.selectedPhotos
+        photos: this.selectedPhotos,
+        category:this.category
       }
     });
   }

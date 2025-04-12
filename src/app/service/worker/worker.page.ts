@@ -33,7 +33,7 @@ export class WorkerPage implements OnInit {
     {
       id: 1,
       name: 'Rakoto Salomon',
-      image: 'assets/images/workers/worker1.jpg',
+      image: 'assets/images/avatar/rakoto-salomon.jpg',
       skills: ['tuyauterie', 'plomberie', 'sanitaire', 'fuite d\'eau'],
       rating: 4.5,
       price: '5 000'
@@ -41,7 +41,7 @@ export class WorkerPage implements OnInit {
     {
       id: 2,
       name: 'Razanany Mirana',
-      image: 'assets/images/workers/worker2.jpg',
+      image: 'assets/images/avatar/razanany-mirana.jpg',
       skills: ['puits', 'porte-bidons', 'nettoyage', ''],
       rating: 5,
       price: '1 000'
@@ -49,7 +49,7 @@ export class WorkerPage implements OnInit {
     {
       id: 3,
       name: 'Morafeno Chrisolin',
-      image: 'assets/images/workers/worker3.jpg',
+      image: 'assets/images/avatar/Morafeno-chrisolin.jpg',
       skills: ['transport d\'eau', 'porte-bidons', '', ''],
       rating: 3.5,
       price: '1 200'
@@ -57,7 +57,7 @@ export class WorkerPage implements OnInit {
     {
       id: 4,
       name: 'Nanahary Tovomanana',
-      image: 'assets/images/workers/worker4.jpg',
+      image: 'assets/images/avatar/Nanahary-tovomanana.jpg',
       skills: ['nettoyeur', 'porte-bidons', 'puits', ''],
       rating: 4.5,
       price: '800'
@@ -65,37 +65,49 @@ export class WorkerPage implements OnInit {
     {
       id: 5,
       name: 'Christine Natalie',
-      image: 'assets/images/workers/worker5.jpg',
+      image: 'assets/images/avatar/Christine-natalie.jpg',
       skills: ['nettoyage', 'lessive', '', ''],
       rating: 3.5,
       price: '5 000'
     }
   ];
 
+  category={};
 
   constructor(private router: Router,private location:Location) { }
 
   ngOnInit() {
-    // // Vous pouvez récupérer les données du problème si nécessaire
-    // const navigation = this.router.getCurrentNavigation();
-    // if (navigation?.extras.state) {
-    //   const problemData = navigation.extras.state;
-    //   console.log('Données du problème reçues:', problemData);
-    //   // Ici vous pourriez filtrer les travailleurs en fonction des données du problème
-    // }
+    this.category = history.state.category;
   }
 
   reserveWorker(worker: any) {
     this.router.navigate(['/service/resume'], {
-      state: { worker }
+      state: {
+        worker:worker,
+        category:this.category
+      }
     });
   }
 
   showDetails(id: number) {
-    this.router.navigate(['/service/worker/'+id]);
+    this.router.navigate(['/service/worker/'+id],{
+      state: {
+        worker:this.findWorkerById(id),
+        category:this.category
+      }
+    });
   }
 
   goBack() {
     this.location.back();
+  }
+
+  findWorkerById(id: number) {
+    for (let i = 0; i < this.workers.length; i++) {
+      if (this.workers[i].id === id) {
+        return this.workers[i];
+      }
+    }
+    return null;
   }
 }
