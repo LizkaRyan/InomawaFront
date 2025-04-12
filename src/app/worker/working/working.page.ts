@@ -14,13 +14,14 @@ import {
 } from '@ionic/angular/standalone';
 import { interval, Subscription } from 'rxjs';
 import {NavController} from "@ionic/angular";
+import {TabWorkerComponent} from "../../shared/tab-worker/tab-worker.component";
 
 @Component({
   selector: 'app-working',
   templateUrl: './working.page.html',
   styleUrls: ['./working.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonButton, IonIcon, IonFooter, IonTabs, IonTabBar, IonTabButton, IonBadge]
+    imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonButton, IonIcon, IonFooter, IonTabs, IonTabBar, IonTabButton, IonBadge, TabWorkerComponent]
 })
 export class WorkingPage implements OnInit, OnDestroy {
 

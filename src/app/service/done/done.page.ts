@@ -13,13 +13,24 @@ import {
   IonToolbar
 } from '@ionic/angular/standalone';
 import {NavController} from "@ionic/angular";
+import { addIcons } from 'ionicons';
+import {
+  arrowBackOutline,
+  checkmark,
+  star,
+  starOutline,
+  homeOutline,
+  documentTextOutline,
+  chatbubbleOutline
+} from 'ionicons/icons';
+import {TabCustomerComponent} from "../../shared/tab-customer/tab-customer.component";
 
 @Component({
   selector: 'app-done',
   templateUrl: './done.page.html',
   styleUrls: ['./done.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonButton, IonIcon, IonFooter, IonTabs, IonTabBar, IonTabButton, IonBadge]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonButton, IonIcon, IonFooter, IonTabs, IonTabBar, IonTabButton, IonBadge, TabCustomerComponent]
 })
 export class DonePage implements OnInit {
 
@@ -33,7 +44,17 @@ export class DonePage implements OnInit {
     rating: 4
   };
 
-  constructor(private navCtrl: NavController) { }
+  constructor(private navCtrl: NavController) {
+    addIcons({
+      arrowBackOutline,    // Icône flèche retour
+      checkmark,          // Icône de validation (coche verte)
+      star,               // Icône étoile pleine (notation)
+      starOutline,        // Icône étoile vide (notation)
+      homeOutline,        // Icône accueil (footer)
+      documentTextOutline, // Icône documents (footer)
+      chatbubbleOutline   // Icône chat (footer)
+    });
+  }
 
   ngOnInit() {
   }

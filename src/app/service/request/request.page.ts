@@ -12,30 +12,73 @@ import {
 } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import {Camera, CameraResultType, CameraSource} from "@capacitor/camera";
+import { addIcons } from 'ionicons'; // Import ajouté
+import {
+  arrowBackOutline,
+  calendarOutline,
+  star,
+  locationOutline,
+  pricetagOutline,
+  cardOutline,
+  documentTextOutline,
+  createOutline,
+  menu,
+  home,
+  arrowForward,
+  chatbubbleOutline,
+  add,
+  closeCircle,
+  timeOutline
+} from 'ionicons/icons';
+import {TabCustomerComponent} from "../../shared/tab-customer/tab-customer.component"; // Import des icônes
 
 @Component({
   selector: 'app-request',
   templateUrl: './request.page.html',
   styleUrls: ['./request.page.scss'],
   standalone: true,
-  imports: [IonContent, IonToolbar, CommonModule, FormsModule, IonButton, IonButtons, IonIcon, IonFooter, IonTextarea, IonInput]
+  imports: [IonContent, IonToolbar, CommonModule, FormsModule, IonButton, IonButtons, IonIcon, IonFooter, IonTextarea, IonInput, TabCustomerComponent]
 })
 export class RequestPage implements OnInit {
   problemDescription: string = '';
   selectedDate: string = '';
   selectedTime: string = '';
   selectedPhotos: string[] = [
-    'assets/images/problems/pipe1.jpg',
-    'assets/images/problems/pipe2.jpg'
+    'assets/images/issue/issue1.jpg',
+    'assets/images/issue/issue2.jpg'
   ]; // Photos pré-chargées comme exemple
 
-  constructor(private router: Router,private location:Location) {}
+  category={
+    name: "",
+    image: ""
+  }
+
+  constructor(private router: Router,private location:Location) {
+    addIcons({
+      arrowBackOutline,
+      calendarOutline,
+      star,
+      locationOutline,
+      pricetagOutline,
+      cardOutline,
+      documentTextOutline,
+      createOutline,
+      chatbubbleOutline,
+      menu,
+      home,
+      arrowForward,
+      add,
+      closeCircle,
+      timeOutline
+    });
+  }
 
   ngOnInit() {
     // Initialiser avec la date et l'heure actuelle
     const now = new Date();
     this.selectedDate = this.formatDate(now);
     this.selectedTime = this.formatTime(now);
+    this.category = history.state.category;
   }
 
   formatDate(date: Date): string {
@@ -83,7 +126,8 @@ export class RequestPage implements OnInit {
         description: this.problemDescription,
         date: this.selectedDate,
         time: this.selectedTime,
-        photos: this.selectedPhotos
+        photos: this.selectedPhotos,
+        category:this.category
       }
     });
   }

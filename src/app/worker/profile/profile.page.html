@@ -15,7 +15,7 @@
     <div class="profile-avatar-container">
       <div class="profile-avatar">
         <img [src]="provider.avatar" alt="Avatar">
-        <div class="edit-button" (click)="editProfile()">
+        <div class="edit-button">
           <ion-icon name="pencil"></ion-icon>
         </div>
       </div>
@@ -91,21 +91,6 @@
   </div>
 </ion-content>
 
-<ion-footer class="ion-no-border">
-  <ion-toolbar>
-    <ion-tabs>
-      <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="home">
-          <ion-icon name="home-outline"></ion-icon>
-        </ion-tab-button>
-        <ion-tab-button tab="notifications">
-          <ion-icon name="document-text-outline"></ion-icon>
-          <ion-badge color="primary">2</ion-badge>
-        </ion-tab-button>
-        <ion-tab-button tab="chat">
-          <ion-icon name="chatbubble-outline"></ion-icon>
-        </ion-tab-button>
-      </ion-tab-bar>
-    </ion-tabs>
-  </ion-toolbar>
+<ion-footer>
+  <app-tab-worker></app-tab-worker>
 </ion-footer>

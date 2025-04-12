@@ -3,15 +3,23 @@
   <ion-toolbar color="light">
     <ion-title class="ion-text-center">Réservation</ion-title>
   </ion-toolbar>
-  <ion-toolbar color="light">
-    <ion-searchbar placeholder="Tout" class="custom-searchbar"></ion-searchbar>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="filter-container">
+    <ion-item lines="none" class="filter-item">
+      <ion-select [(ngModel)]="filterValue" interface="popover" placeholder="Select One" (ionChange)="filterList()">
+        <ion-select-option value="Tout">Tout</ion-select-option>
+        <ion-select-option value="en cours">En cours</ion-select-option>
+        <ion-select-option value="attente">En attente</ion-select-option>
+        <ion-select-option value="terminé">Terminé</ion-select-option>
+      </ion-select>
+      <ion-icon name="search-outline" slot="end"></ion-icon>
+    </ion-item>
+  </div>
   <div class="reservations-container">
     <!-- Reservation en cours -->
-    <div class="reservation-card" *ngFor="let reservation of reservations">
+    <div class="reservation-card" *ngFor="let reservation of reservationFiltered">
       <div class="reservation-header" [ngClass]="reservation.statusClass">
         <div class="reservation-title">{{ reservation.title }}</div>
         <div class="reservation-status" *ngIf="reservation.status === 'en cours'">
@@ -41,7 +49,7 @@
             </div>
             <div class="technician">
               <ion-avatar>
-                <img src="assets/images/avatar.jpg">
+                <img src="{{reservation.technicianImage}}">
               </ion-avatar>
               <div>{{ reservation.technician }}</div>
             </div>
@@ -56,7 +64,7 @@
             <div class="technician-info">
               <div class="technician">
                 <ion-avatar>
-                  <img src="assets/images/avatar.jpg">
+                  <img src="{{reservation.technicianImage}}">
                 </ion-avatar>
                 <div>{{ reservation.technician }}</div>
                 <div class="price">{{ reservation.price }}</div>
@@ -90,7 +98,7 @@
             <div class="technician-info">
               <div class="technician">
                 <ion-avatar>
-                  <img src="assets/images/avatar.jpg">
+                  <img src="{{reservation.technicianImage}}">
                 </ion-avatar>
                 <div>{{ reservation.technician }}</div>
               </div>
@@ -133,22 +141,5 @@
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar>
-    <ion-tabs>
-      <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="home">
-          <ion-icon name="home"></ion-icon>
-        </ion-tab-button>
-        <ion-tab-button tab="calendar">
-          <ion-icon name="calendar"></ion-icon>
-        </ion-tab-button>
-        <ion-tab-button tab="chat">
-          <ion-icon name="chatbubbles"></ion-icon>
-        </ion-tab-button>
-        <ion-tab-button tab="profile">
-          <ion-icon name="person"></ion-icon>
-        </ion-tab-button>
-      </ion-tab-bar>
-    </ion-tabs>
-  </ion-toolbar>
+  <app-tab-customer></app-tab-customer>
 </ion-footer>

@@ -6,20 +6,35 @@ import {
   IonButton,
   IonContent, IonFooter,
   IonHeader,
-  IonIcon,
-  IonSearchbar, IonTabBar, IonTabButton, IonTabs,
+  IonIcon, IonItem,
+  IonSearchbar, IonSelect, IonSelectOption, IonTabBar, IonTabButton, IonTabs,
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
+import {TabCustomerComponent} from "../../shared/tab-customer/tab-customer.component";
+import { addIcons } from 'ionicons';
+import {
+  searchOutline,
+  locationOutline,
+  star,
+  call,
+  chatbubbleOutline,
+  closeCircle,
+  // Icônes potentielles du composant app-tab-customer
+  homeOutline,
+  documentTextOutline,
+  chatbubbleEllipsesOutline
+} from 'ionicons/icons';
 
 @Component({
   selector: 'app-reservation',
   templateUrl: './reservation.page.html',
   styleUrls: ['./reservation.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonSearchbar, IonIcon, IonAvatar, IonButton, IonBadge, IonFooter, IonTabs, IonTabBar, IonTabButton]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonIcon, IonAvatar, IonButton, IonBadge, IonFooter, IonSelect, IonSelectOption, IonItem, TabCustomerComponent]
 })
 export class ReservationPage implements OnInit {
+  filterValue="";
   reservations = [
     {
       id: 1,
@@ -32,7 +47,8 @@ export class ReservationPage implements OnInit {
       price: '5 000 Ar/h',
       location: 'Lot 5 Ter Tsiatoska',
       technician: 'RAKOTO Salomon',
-      image: 'assets/images/pipe-repair.jpg'
+      technicianImage: "assets/images/avatar/rakoto-salomon.jpg",
+      image: 'assets/images/issue/issue2.jpg'
     },
     {
       id: 2,
@@ -44,10 +60,11 @@ export class ReservationPage implements OnInit {
       heure: '09:30',
       fin: '11:00',
       technician: 'RAKOTO SALOMON',
+      technicianImage: "assets/images/avatar/rakoto-salomon.jpg",
       location: 'Lot 5 Ter Tsiatoska',
       price: '5 000 Ar/h',
       rating: 4.5,
-      image: 'assets/images/broken-pipe.jpg'
+      image: 'assets/images/issue/issue1.jpg'
     },
     {
       id: 3,
@@ -59,17 +76,33 @@ export class ReservationPage implements OnInit {
       fin: '11:00',
       debut: '08:30',
       technician: 'Détails',
+      technicianImage: "assets/images/avatar/rakoto-salomon.jpg",
       rating: 4.5,
       price: '5 000 Ar/h',
       location: 'Lot 5 Ter Tsiatoska',
       hasMessages: true,
       messageCount: 2,
       rescheduleAvailable: true,
-      image: 'assets/images/faucet-leak.jpg'
+      image: 'assets/images/issue/issue-robinet.jpg'
     }
   ];
 
-  constructor() {}
+  reservationFiltered:any=this.reservations;
+
+  constructor() {
+    addIcons({
+      searchOutline,      // Icône de recherche
+      locationOutline,    // Icône de localisation
+      star,               // Icône étoile (évaluations)
+      call,               // Icône d'appel
+      chatbubbleOutline,  // Icône de message
+      closeCircle,        // Icône de fermeture
+      // Ajoutez aussi les icônes du footer si nécessaire
+      homeOutline,
+      documentTextOutline,
+      chatbubbleEllipsesOutline
+    });
+  }
 
   ngOnInit(): void {
 
@@ -96,4 +129,13 @@ export class ReservationPage implements OnInit {
     console.log('Filtrer par:', filter);
   }
 
+  filterList() {
+    if (this.filterValue === 'Tout') {
+      this.reservationFiltered = [...this.reservations];
+    } else {
+      this.reservationFiltered = this.reservations.filter(
+        reservation => reservation.status === this.filterValue
+      );
+    }
+  }
 }

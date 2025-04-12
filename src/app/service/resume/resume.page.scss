@@ -177,22 +177,13 @@ ion-content {
 }
 
 .reserve-button-container {
-  padding: 16px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #e6f0fa;
+  margin-top: 30px;
 
-  ion-button {
-    --background: #00569d;
-    --border-radius: 8px;
+  .submit-button {
+    --background: #005577;
+    --border-radius: 20px;
     --box-shadow: none;
-    height: 48px;
-    font-weight: 500;
-
-    ion-icon {
-      margin-right: 8px;
-    }
+    font-size: 15px;
+    height: 44px;
   }
 }

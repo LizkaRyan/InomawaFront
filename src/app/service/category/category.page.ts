@@ -2,6 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import {Router} from "@angular/router";
+import { FormsModule } from '@angular/forms';
+import { addIcons } from 'ionicons';
+import {
+  locationOutline,
+  home,
+  menu,
+  chatbubbleOutline
+} from 'ionicons/icons';
+import {TabCustomerComponent} from "../../shared/tab-customer/tab-customer.component";
 
 interface Category {
   id: number;
@@ -14,7 +23,7 @@ interface Category {
   templateUrl: './category.page.html',
   styleUrls: ['./category.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule]
+  imports: [IonicModule, CommonModule, FormsModule, TabCustomerComponent]
 })
 export class CategoryPage implements OnInit {
   categories: Category[] = [
@@ -29,12 +38,40 @@ export class CategoryPage implements OnInit {
     // Vous pouvez ajouter d'autres catégories si nécessaire
   ];
 
-  constructor(private router:Router) { }
+  categoriesFiltered: Category[] = this.categories;
+
+  searchName="";
+
+  constructor(private router:Router) {
+    addIcons({
+      locationOutline,  // Icône de localisation
+      home,            // Icône d'accueil (footer)
+      menu,            // Icône menu (footer)
+      chatbubbleOutline // Icône chat (footer)
+    });
+  }
 
   ngOnInit() {
   }
 
-  askService(id: number) {
-    this.router.navigate(['/service/request']);
+  askService(category: Category) {
+    this.router.navigate(['/service/request'],{
+      state: { category: category },
+    });
+  }
+
+  filterList($event: any) {
+    if(this.searchName===""){
+      this.categoriesFiltered = [...this.categories];
+    }
+    else {
+      this.categoriesFiltered = this.categories.filter(category => {
+        return category.name.toLowerCase().toLowerCase().includes(this.searchName);
+      })
+    }
+  }
+
+  navigateToProfile() {
+    this.router.navigate(['/customer/profile']);
   }
 }

@@ -1,6 +1,27 @@
 import {Component, OnInit} from "@angular/core";
-import {IonBadge, IonButton, IonContent, IonIcon, IonTabBar, IonTabButton} from "@ionic/angular/standalone";
+import {
+  IonBadge,
+  IonButton,
+  IonContent,
+  IonFooter,
+  IonIcon, IonLabel,
+  IonTabBar,
+  IonTabButton,
+  IonTabs
+} from "@ionic/angular/standalone";
 import {CommonModule} from "@angular/common";
+import {TabWorkerComponent} from "../../shared/tab-worker/tab-worker.component";
+import { addIcons } from 'ionicons';
+import {
+  locationOutline,
+  refreshOutline,
+  listOutline,
+  heartOutline,
+  calendarOutline,
+  star
+} from 'ionicons/icons';
+import {Router} from "@angular/router";
+import {TabCustomerComponent} from "../../shared/tab-customer/tab-customer.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -10,18 +31,18 @@ import {CommonModule} from "@angular/common";
   imports: [
     IonContent,
     IonIcon,
-    IonTabBar,
-    IonTabButton,
-    IonBadge,
     IonButton,
-    CommonModule
+    CommonModule,
+    TabWorkerComponent,
+    IonFooter,
+    TabCustomerComponent
   ]
 })
 export class DashboardPage implements OnInit {
   plumber = {
     name: 'RAKOTO Salomon',
     location: 'A32 Betavoahangy Itaosy, Antananarivo',
-    avatar: 'assets/images/plumber-avatar.jpg',
+    avatar: 'assets/images/avatar/rakoto-salomon.jpg',
     totalEarnings: '260 000 Ar',
     totalServices: 23,
     favoriteServices: 4,
@@ -32,10 +53,10 @@ export class DashboardPage implements OnInit {
     {
       type: 'Maintenant',
       location: 'Lot 95 Ter Isotsoaka',
-      client: 'Marie RAKOA',
+      client: 'Marie RASOA',
       serviceType: 'Plombier',
       price: '12 500 Ar',
-      clientAvatar: 'assets/images/client1.jpg',
+      clientAvatar: 'assets/images/avatar/marie-rasoa.jpg',
       image: 'assets/images/working.png'
     },
     {
@@ -44,7 +65,7 @@ export class DashboardPage implements OnInit {
       client: 'Hery Falimanana',
       serviceType: 'Vaporiste',
       price: '10 000 AR',
-      clientAvatar: 'assets/images/client2.jpg',
+      clientAvatar: 'assets/images/avatar/Hery-rafalimanana.jpg',
       image: 'assets/images/index.png'
     }
   ];
@@ -62,7 +83,16 @@ export class DashboardPage implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(private router:Router) {
+    addIcons({
+      locationOutline,  // Icône de localisation
+      refreshOutline,   // Icône de revenus (actualisation)
+      listOutline,     // Icône de liste (total services)
+      heartOutline,    // Icône de coeur (favoris)
+      calendarOutline, // Icône de calendrier (services du jour)
+      star             // Icône étoile (évaluations)
+    });
+  }
 
   ngOnInit() {
   }
@@ -77,4 +107,7 @@ export class DashboardPage implements OnInit {
     // Implement accept logic
   }
 
+  navigateToProfile() {
+    this.router.navigate(['/worker/profile']);
+  }
 }

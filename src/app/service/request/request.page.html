@@ -5,7 +5,7 @@
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <div class="title">Tuyau cassé</div>
+    <div class="title">{{category.name}}</div>
     <div class="spacer"></div>
   </div>
 
@@ -64,24 +64,8 @@
       </ion-button>
     </div>
   </div>
-
-  <ion-footer class="app-footer">
-    <ion-toolbar>
-      <ion-buttons slot="start" class="footer-button">
-        <ion-button routerLink="/home">
-          <ion-icon name="home"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-      <ion-buttons slot="center" class="footer-button">
-        <ion-button>
-          <ion-icon name="menu"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-      <ion-buttons slot="end" class="footer-button">
-        <ion-button>
-          <ion-icon name="chatbubble-outline"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-footer>
 </ion-content>
+
+<ion-footer>
+  <app-tab-customer></app-tab-customer>
+</ion-footer>

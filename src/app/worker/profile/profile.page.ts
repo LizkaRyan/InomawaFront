@@ -13,19 +13,40 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import {
+  arrowBackOutline,
+  pencil,
+  walletOutline,
+  listOutline,
+  star,
+  pricetagOutline,
+  chevronForwardOutline,
+  homeOutline,
+  documentTextOutline,
+  chatbubbleOutline,
+  // Icônes du menu
+  personOutline,
+  settingsOutline,
+  helpCircleOutline,
+  shieldCheckmarkOutline,
+  cardOutline,
+  notificationsOutline
+} from 'ionicons/icons';
+import {TabWorkerComponent} from "../../shared/tab-worker/tab-worker.component";
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonButton, IonIcon, IonList, IonItem, IonLabel, IonFooter, IonTabs, IonTabBar, IonTabButton, IonBadge]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonButton, IonIcon, IonList, IonItem, IonLabel, IonFooter, IonTabs, IonTabBar, IonTabButton, IonBadge, TabWorkerComponent]
 })
 export class ProfilePage implements OnInit {
 
   provider = {
     name: 'RAKOTO Salomon',
-    avatar: 'assets/images/provider-avatar.jpg',
+    avatar: 'assets/images/avatar/rakoto-salomon.jpg',
     totalEarnings: '260000 Ar',
     totalServices: '23',
     rating: 4.5,
@@ -55,7 +76,27 @@ export class ProfilePage implements OnInit {
     }
   ];
 
-  constructor(private navCtrl: NavController) { }
+  constructor(private navCtrl: NavController) {
+    addIcons({
+      arrowBackOutline,      // Icône flèche retour
+      pencil,                // Icône éditer le profil
+      walletOutline,         // Icône porte-monnaie (total gains)
+      listOutline,          // Icône liste (total services)
+      star,                 // Icône étoile (évaluation)
+      pricetagOutline,      // Icône étiquette (tarif horaire)
+      chevronForwardOutline, // Icône flèche menu
+      homeOutline,          // Icône accueil (footer)
+      documentTextOutline,  // Icône documents (footer)
+      chatbubbleOutline,    // Icône chat (footer)
+      // Icônes du menu
+      personOutline,
+      settingsOutline,
+      helpCircleOutline,
+      shieldCheckmarkOutline,
+      cardOutline,
+      notificationsOutline
+    });
+  }
 
   ngOnInit() {
   }
@@ -71,11 +112,7 @@ export class ProfilePage implements OnInit {
   logout() {
     // Implement logout logic
     console.log('Logging out...');
-    this.navCtrl.navigateRoot('/login');
-  }
-
-  editProfile() {
-    this.navCtrl.navigateForward('/edit-profile');
+    this.navCtrl.navigateRoot('/');
   }
 
 }
