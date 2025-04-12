@@ -6,8 +6,8 @@ import {
   IonButton,
   IonContent, IonFooter,
   IonHeader,
-  IonIcon,
-  IonSearchbar, IonTabBar, IonTabButton, IonTabs,
+  IonIcon, IonItem,
+  IonSearchbar, IonSelect, IonSelectOption, IonTabBar, IonTabButton, IonTabs,
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
@@ -17,9 +17,10 @@ import {
   templateUrl: './reservation.page.html',
   styleUrls: ['./reservation.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonSearchbar, IonIcon, IonAvatar, IonButton, IonBadge, IonFooter, IonTabs, IonTabBar, IonTabButton]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonSearchbar, IonIcon, IonAvatar, IonButton, IonBadge, IonFooter, IonTabs, IonTabBar, IonTabButton, IonSelect, IonSelectOption, IonItem]
 })
 export class ReservationPage implements OnInit {
+  filterValue="";
   reservations = [
     {
       id: 1,
@@ -72,6 +73,8 @@ export class ReservationPage implements OnInit {
     }
   ];
 
+  reservationFiltered:any=this.reservations;
+
   constructor() {}
 
   ngOnInit(): void {
@@ -99,4 +102,13 @@ export class ReservationPage implements OnInit {
     console.log('Filtrer par:', filter);
   }
 
+  filterList() {
+    if (this.filterValue === 'Tout') {
+      this.reservationFiltered = [...this.reservations];
+    } else {
+      this.reservationFiltered = this.reservations.filter(
+        reservation => reservation.status === this.filterValue
+      );
+    }
+  }
 }
