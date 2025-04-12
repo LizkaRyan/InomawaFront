@@ -9,11 +9,10 @@
   <!-- Filter -->
   <div class="filter-container">
     <ion-item lines="none" class="filter-item">
-      <ion-select [(ngModel)]="filterValue" interface="popover" placeholder="Select One">
+      <ion-select [(ngModel)]="filterValue" interface="popover" placeholder="Select One" (ionChange)="filterList()">
         <ion-select-option value="Tout">Tout</ion-select-option>
-        <ion-select-option value="En cours">En cours</ion-select-option>
-        <ion-select-option value="En attente">En attente</ion-select-option>
-        <ion-select-option value="Terminé">Terminé</ion-select-option>
+        <ion-select-option value="en attente">En attente</ion-select-option>
+        <ion-select-option value="confirmé">Confirmé</ion-select-option>
       </ion-select>
       <ion-icon name="search-outline" slot="end"></ion-icon>
     </ion-item>
@@ -80,7 +79,7 @@
       </div>
 
       <div class="secondary-buttons">
-        <ion-button fill="outline" color="medium" class="ignore-button" (click)="ignoreReservation(reservations[0].id)">
+        <ion-button fill="outline" color="danger" class="ignore-button" (click)="ignoreReservation(reservations[0].id)">
           Ignorer
         </ion-button>
         <ion-button color="success" class="finish-button" (click)="finishReservation(reservations[0].id)">
@@ -90,7 +89,7 @@
     </div>
 
     <!-- Other reservations with compact view -->
-    <div class="reservation-card compact" *ngFor="let reservation of reservations.slice(1)">
+    <div class="reservation-card compact" *ngFor="let reservation of reservationsFiltered">
       <div class="service-image">
         <img [src]="reservation.image" alt="Service image">
       </div>

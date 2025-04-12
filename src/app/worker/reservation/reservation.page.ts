@@ -76,6 +76,8 @@ export class ReservationPage implements OnInit {
     }
   ];
 
+  reservationsFiltered=this.reservations.slice(1);
+
   constructor() { }
 
   ngOnInit() {
@@ -99,5 +101,18 @@ export class ReservationPage implements OnInit {
   finishReservation(id: number) {
     console.log('Finishing reservation:', id);
     // Implement finish functionality
+  }
+
+  filterList() {
+    console.log("Filtered");
+    if (this.filterValue === 'Tout') {
+      this.reservationsFiltered = [...this.reservations].slice(1);
+    } else {
+      this.reservationsFiltered = this.reservations.filter(
+        reservation => {
+          return reservation.status === this.filterValue
+        }
+      );
+    }
   }
 }
