@@ -32,7 +32,8 @@ export class ReservationPage implements OnInit {
       price: '5 000 Ar/h',
       location: 'Lot 5 Ter Tsiatoska',
       technician: 'RAKOTO Salomon',
-      image: 'assets/images/pipe-repair.jpg'
+      technicianImage: "assets/images/avatar/rakoto-salomon.jpg",
+      image: 'assets/images/issue/issue2.jpg'
     },
     {
       id: 2,
@@ -44,10 +45,11 @@ export class ReservationPage implements OnInit {
       heure: '09:30',
       fin: '11:00',
       technician: 'RAKOTO SALOMON',
+      technicianImage: "assets/images/avatar/rakoto-salomon.jpg",
       location: 'Lot 5 Ter Tsiatoska',
       price: '5 000 Ar/h',
       rating: 4.5,
-      image: 'assets/images/broken-pipe.jpg'
+      image: 'assets/images/issue/issue1.jpg'
     },
     {
       id: 3,
@@ -59,13 +61,14 @@ export class ReservationPage implements OnInit {
       fin: '11:00',
       debut: '08:30',
       technician: 'Détails',
+      technicianImage: "assets/images/avatar/rakoto-salomon.jpg",
       rating: 4.5,
       price: '5 000 Ar/h',
       location: 'Lot 5 Ter Tsiatoska',
       hasMessages: true,
       messageCount: 2,
       rescheduleAvailable: true,
-      image: 'assets/images/faucet-leak.jpg'
+      image: 'assets/images/issue/issue-robinet.jpg'
     }
   ];
 
