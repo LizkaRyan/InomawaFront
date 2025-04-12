@@ -98,13 +98,16 @@ export class DashboardPage implements OnInit {
   }
 
   ignoreRequest(index: number) {
-    console.log('Ignoring request', index);
+    if (index >= 0 && index < this.serviceRequests.length) {
+      this.serviceRequests.splice(index, 1);
+    }
     // Implement ignore logic
   }
 
   acceptRequest(index: number) {
-    console.log('Accepting request', index);
-    // Implement accept logic
+    if (index >= 0 && index < this.serviceRequests.length) {
+      this.serviceRequests.splice(index, 1);
+    }
   }
 
   navigateToProfile() {

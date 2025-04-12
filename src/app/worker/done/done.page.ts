@@ -65,7 +65,7 @@ export class DonePage implements OnInit {
 
   confirm() {
     // Action à exécuter lors de la confirmation
-    this.navCtrl.navigateRoot('/home');
+    this.navCtrl.navigateRoot('/worker');
   }
 
 }
