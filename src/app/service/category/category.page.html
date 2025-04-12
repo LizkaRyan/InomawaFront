@@ -15,7 +15,7 @@
     </div>
 
     <div class="search-bar">
-      <ion-searchbar placeholder="Quel service cherchez-vous?" mode="ios"></ion-searchbar>
+      <ion-searchbar placeholder="Quel service cherchez-vous?" [(ngModel)]="searchName" (ionInput)="filterList($event)" mode="ios"></ion-searchbar>
     </div>
   </div>
 
@@ -23,7 +23,7 @@
     <h3>Catégories</h3>
 
     <div class="categories-grid">
-      <div class="category-card" *ngFor="let category of categories" (click)="askService(category)">
+      <div class="category-card" *ngFor="let category of categoriesFiltered" (click)="askService(category)">
         <div class="category-image">
           <img [src]="'assets/images/services/' + category.image" [alt]="category.name">
         </div>
