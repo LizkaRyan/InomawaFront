@@ -21,7 +21,7 @@ export class DashboardPage implements OnInit {
   plumber = {
     name: 'RAKOTO Salomon',
     location: 'A32 Betavoahangy Itaosy, Antananarivo',
-    avatar: 'assets/images/plumber-avatar.jpg',
+    avatar: 'assets/images/avatar/rakoto-salomon.jpg',
     totalEarnings: '260 000 Ar',
     totalServices: 23,
     favoriteServices: 4,
@@ -32,10 +32,10 @@ export class DashboardPage implements OnInit {
     {
       type: 'Maintenant',
       location: 'Lot 95 Ter Isotsoaka',
-      client: 'Marie RAKOA',
+      client: 'Marie RASOA',
       serviceType: 'Plombier',
       price: '12 500 Ar',
-      clientAvatar: 'assets/images/client1.jpg',
+      clientAvatar: 'assets/images/avatar/marie-rasoa.jpg',
       image: 'assets/images/working.png'
     },
     {
@@ -44,7 +44,7 @@ export class DashboardPage implements OnInit {
       client: 'Hery Falimanana',
       serviceType: 'Vaporiste',
       price: '10 000 AR',
-      clientAvatar: 'assets/images/client2.jpg',
+      clientAvatar: 'assets/images/avatar/Hery-rafalimanana.jpg',
       image: 'assets/images/index.png'
     }
   ];
