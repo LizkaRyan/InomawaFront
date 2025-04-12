@@ -11,6 +11,16 @@ import {
   IonToolbar
 } from '@ionic/angular/standalone';
 import {Router} from "@angular/router";
+import {
+  arrowBackOutline,
+  filterOutline,
+  ellipse,
+  star,
+  home,
+  menu,
+  chatbubbleOutline
+} from 'ionicons/icons';
+import {addIcons} from "ionicons";
 
 interface Worker {
   id: number;
@@ -74,7 +84,17 @@ export class WorkerPage implements OnInit {
 
   category={};
 
-  constructor(private router: Router,private location:Location) { }
+  constructor(private router: Router,private location:Location) {
+    addIcons({
+      arrowBackOutline,
+      filterOutline,
+      ellipse,
+      star,
+      home,
+      menu,
+      chatbubbleOutline
+    });
+  }
 
   ngOnInit() {
     this.category = history.state.category;

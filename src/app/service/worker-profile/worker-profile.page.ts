@@ -4,6 +4,17 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonTitle, IonToolbar} from "@ionic/angular/standalone";
 import {Router} from "@angular/router";
+import { addIcons } from 'ionicons';
+import {
+  arrowBackOutline,
+  bookmark,
+  shareSocialOutline,
+  ellipsisHorizontal,
+  star,
+  chatbubbleOutline,
+  calendarOutline
+} from 'ionicons/icons';
+
 @Component({
   selector: 'app-worker-profile',
   templateUrl: './worker-profile.page.html',
@@ -56,7 +67,17 @@ export class WorkerProfilePage implements OnInit {
 
   category={}
 
-  constructor(private location: Location,private router:Router) { }
+  constructor(private location: Location,private router:Router) {
+    addIcons({
+      arrowBackOutline,    // Icône flèche retour
+      bookmark,           // Icône bookmark
+      shareSocialOutline, // Icône partage
+      ellipsisHorizontal, // Icône points de suspension
+      star,               // Icône étoile (évaluation)
+      chatbubbleOutline,  // Icône message
+      calendarOutline     // Icône calendrier (réservation)
+    });
+  }
 
   ngOnInit() {
     this.plumber.name = history.state.worker.name;

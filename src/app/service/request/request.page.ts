@@ -12,6 +12,24 @@ import {
 } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import {Camera, CameraResultType, CameraSource} from "@capacitor/camera";
+import { addIcons } from 'ionicons'; // Import ajouté
+import {
+  arrowBackOutline,
+  calendarOutline,
+  star,
+  locationOutline,
+  pricetagOutline,
+  cardOutline,
+  documentTextOutline,
+  createOutline,
+  menu,
+  home,
+  arrowForward,
+  chatbubbleOutline,
+  add,
+  closeCircle,
+  timeOutline
+} from 'ionicons/icons'; // Import des icônes
 
 @Component({
   selector: 'app-request',
@@ -34,7 +52,25 @@ export class RequestPage implements OnInit {
     image: ""
   }
 
-  constructor(private router: Router,private location:Location) {}
+  constructor(private router: Router,private location:Location) {
+    addIcons({
+      arrowBackOutline,
+      calendarOutline,
+      star,
+      locationOutline,
+      pricetagOutline,
+      cardOutline,
+      documentTextOutline,
+      createOutline,
+      chatbubbleOutline,
+      menu,
+      home,
+      arrowForward,
+      add,
+      closeCircle,
+      timeOutline
+    });
+  }
 
   ngOnInit() {
     // Initialiser avec la date et l'heure actuelle

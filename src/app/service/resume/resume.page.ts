@@ -4,6 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { Location } from '@angular/common';
 import {IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonTitle, IonToolbar} from '@ionic/angular/standalone';
 import {Router} from "@angular/router";
+import { addIcons } from 'ionicons'; // Import ajouté
+import {
+  arrowBackOutline,
+  calendarOutline,
+  star,
+  locationOutline,
+  pricetagOutline,
+  cardOutline,
+  documentTextOutline,
+  createOutline
+} from 'ionicons/icons'; // Import des icônes
 
 @Component({
   selector: 'app-resume',
@@ -33,7 +44,18 @@ export class ResumePage implements OnInit {
     }
   };
 
-  constructor(private location: Location, private router: Router) { }
+  constructor(private location: Location, private router: Router) {
+    addIcons({
+      arrowBackOutline,
+      calendarOutline,
+      star,
+      locationOutline,
+      pricetagOutline,
+      cardOutline,
+      documentTextOutline,
+      createOutline
+    });
+  }
 
   ngOnInit() {
     this.serviceRequest.plumber.name = history.state.worker.name;
