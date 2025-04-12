@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import {
   IonBadge,
   IonButton,
-  IonContent,
+  IonContent, IonFooter,
   IonHeader, IonIcon,
   IonItem,
   IonSelect,
@@ -15,13 +15,14 @@ import {
   IonTitle,
   IonToolbar
 } from "@ionic/angular/standalone";
+import {TabWorkerComponent} from "../../shared/tab-worker/tab-worker.component";
 
 @Component({
   selector: 'app-reservation',
   templateUrl: './reservation.page.html',
   styleUrls: ['./reservation.page.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonSelect, IonSelectOption, IonIcon, IonButton, IonTabBar, IonTabButton, IonBadge]
+  imports: [CommonModule, FormsModule, IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonSelect, IonSelectOption, IonIcon, IonButton, IonTabBar, IonTabButton, IonBadge, IonFooter, TabWorkerComponent]
 })
 export class ReservationPage implements OnInit {
   filterValue: string = 'Tout';

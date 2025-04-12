@@ -23,13 +23,14 @@ import {
   listOutline,
   chatbubbleOutline
 } from 'ionicons/icons';
+import {TabWorkerComponent} from "../../shared/tab-worker/tab-worker.component";
 
 @Component({
   selector: 'app-done',
   templateUrl: './done.page.html',
   styleUrls: ['./done.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonButton, IonIcon, IonFooter, IonTabs, IonTabBar, IonTabButton, IonBadge]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonButton, IonIcon, IonFooter, IonTabs, IonTabBar, IonTabButton, IonBadge, TabWorkerComponent]
 })
 export class DonePage implements OnInit {
 

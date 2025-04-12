@@ -21,6 +21,7 @@ import {
   star
 } from 'ionicons/icons';
 import {Router} from "@angular/router";
+import {TabCustomerComponent} from "../../shared/tab-customer/tab-customer.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -32,7 +33,9 @@ import {Router} from "@angular/router";
     IonIcon,
     IonButton,
     CommonModule,
-    TabWorkerComponent
+    TabWorkerComponent,
+    IonFooter,
+    TabCustomerComponent
   ]
 })
 export class DashboardPage implements OnInit {
