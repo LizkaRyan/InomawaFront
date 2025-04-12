@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {IonButton, IonContent, IonHeader, IonTitle, IonToolbar} from '@ionic/angular/standalone';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-index',
@@ -12,16 +13,16 @@ import {IonButton, IonContent, IonHeader, IonTitle, IonToolbar} from '@ionic/ang
 })
 export class IndexPage implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
   hrefLoginUser(){
-    window.location.href = '/login/user';
+    this.router.navigate(['/login/user']);
   }
 
   hrefLoginWorker(){
-    window.location.href = '/login/worker';
+    this.router.navigate(['/login/worker']);
   }
 }

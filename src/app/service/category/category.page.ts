@@ -3,6 +3,13 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import {Router} from "@angular/router";
 import { FormsModule } from '@angular/forms';
+import { addIcons } from 'ionicons';
+import {
+  locationOutline,
+  home,
+  menu,
+  chatbubbleOutline
+} from 'ionicons/icons';
 
 interface Category {
   id: number;
@@ -34,7 +41,14 @@ export class CategoryPage implements OnInit {
 
   searchName="";
 
-  constructor(private router:Router) { }
+  constructor(private router:Router) {
+    addIcons({
+      locationOutline,  // Icône de localisation
+      home,            // Icône d'accueil (footer)
+      menu,            // Icône menu (footer)
+      chatbubbleOutline // Icône chat (footer)
+    });
+  }
 
   ngOnInit() {
   }
@@ -54,5 +68,9 @@ export class CategoryPage implements OnInit {
         return category.name.toLowerCase().toLowerCase().includes(this.searchName);
       })
     }
+  }
+
+  navigateToProfile() {
+    this.router.navigate(['/customer/profile']);
   }
 }

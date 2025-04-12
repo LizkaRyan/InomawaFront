@@ -10,6 +10,27 @@ import {
   IonToolbar,
   NavController
 } from '@ionic/angular/standalone';
+import {Router} from "@angular/router";
+import { addIcons } from 'ionicons';
+import { Location } from '@angular/common';
+import {
+  arrowBackOutline,
+  pencil,
+  walletOutline,
+  starOutline,
+  chevronForwardOutline,
+  homeOutline,
+  listOutline,
+  chatbubbleOutline,
+  // Icônes du menu
+  personOutline,
+  settingsOutline,
+  helpCircleOutline,
+  shieldCheckmarkOutline,
+  cardOutline,
+  notificationsOutline,
+  documentTextOutline
+} from 'ionicons/icons';
 
 @Component({
   selector: 'app-profile',
@@ -23,7 +44,7 @@ export class ProfilePage implements OnInit {
   user = {
     name: 'Marie Rasoa',
     email: 'marie.rasoa@gmail.com',
-    avatar: 'assets/images/profile-avatar.jpg',
+    avatar: 'assets/images/avatar/marie-rasoa.jpg',
     totalSpent: '30 000 Ar',
     rating: 4.6
   };
@@ -51,13 +72,32 @@ export class ProfilePage implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(private router:Router,private location:Location) {
+    addIcons({
+      arrowBackOutline,      // Icône flèche retour
+      pencil,               // Icône éditer profil
+      walletOutline,        // Icône porte-monnaie (dépenses)
+      starOutline,         // Icône étoile vide (note)
+      chevronForwardOutline, // Icône flèche menu
+      homeOutline,         // Icône accueil (footer)
+      listOutline,        // Icône liste (footer)
+      chatbubbleOutline,  // Icône chat (footer)
+      // Icônes du menu
+      personOutline,
+      settingsOutline,
+      helpCircleOutline,
+      shieldCheckmarkOutline,
+      cardOutline,
+      documentTextOutline,
+      notificationsOutline
+    });
+  }
 
   ngOnInit() {
   }
 
   goBack() {
-
+    this.location.back();
   }
 
   navigateTo(route: string) {
@@ -67,6 +107,7 @@ export class ProfilePage implements OnInit {
   logout() {
     // Implement logout logic
     console.log('Logging out...');
+    this.router.navigate(['/']);
   }
 
   editProfile() {

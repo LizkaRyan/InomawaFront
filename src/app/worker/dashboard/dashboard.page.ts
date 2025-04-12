@@ -11,6 +11,16 @@ import {
 } from "@ionic/angular/standalone";
 import {CommonModule} from "@angular/common";
 import {TabWorkerComponent} from "../../shared/tab-worker/tab-worker.component";
+import { addIcons } from 'ionicons';
+import {
+  locationOutline,
+  refreshOutline,
+  listOutline,
+  heartOutline,
+  calendarOutline,
+  star
+} from 'ionicons/icons';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -20,14 +30,8 @@ import {TabWorkerComponent} from "../../shared/tab-worker/tab-worker.component";
   imports: [
     IonContent,
     IonIcon,
-    IonTabBar,
-    IonTabButton,
-    IonBadge,
     IonButton,
     CommonModule,
-    IonFooter,
-    IonTabs,
-    IonLabel,
     TabWorkerComponent
   ]
 })
@@ -76,7 +80,16 @@ export class DashboardPage implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(private router:Router) {
+    addIcons({
+      locationOutline,  // Icône de localisation
+      refreshOutline,   // Icône de revenus (actualisation)
+      listOutline,     // Icône de liste (total services)
+      heartOutline,    // Icône de coeur (favoris)
+      calendarOutline, // Icône de calendrier (services du jour)
+      star             // Icône étoile (évaluations)
+    });
+  }
 
   ngOnInit() {
   }
@@ -91,4 +104,7 @@ export class DashboardPage implements OnInit {
     // Implement accept logic
   }
 
+  navigateToProfile() {
+    this.router.navigate(['/worker/profile']);
+  }
 }

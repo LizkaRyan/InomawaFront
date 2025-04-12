@@ -4,6 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import {IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonTitle, IonToolbar} from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import {
+  arrowBackOutline,
+  checkmark
+} from 'ionicons/icons';
 
 @Component({
   selector: 'app-confirmation',
@@ -21,7 +26,12 @@ export class ConfirmationPage implements OnInit {
   constructor(
     private location: Location,
     private router: Router
-  ) { }
+  ) {
+    addIcons({
+      arrowBackOutline,  // Icône flèche retour
+      checkmark         // Icône de validation (coche)
+    });
+  }
 
   ngOnInit() {
   }

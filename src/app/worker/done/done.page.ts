@@ -13,6 +13,16 @@ import {
   IonToolbar
 } from '@ionic/angular/standalone';
 import {NavController} from "@ionic/angular";
+import { addIcons } from 'ionicons';
+import {
+  arrowBackOutline,
+  checkmark,
+  star,
+  starOutline,
+  homeOutline,
+  listOutline,
+  chatbubbleOutline
+} from 'ionicons/icons';
 
 @Component({
   selector: 'app-done',
@@ -33,7 +43,17 @@ export class DonePage implements OnInit {
     rating: 4
   };
 
-  constructor(private navCtrl: NavController) { }
+  constructor(private navCtrl: NavController) {
+    addIcons({
+      arrowBackOutline,    // Icône flèche retour
+      checkmark,          // Icône de validation (coche)
+      star,               // Icône étoile pleine (notation)
+      starOutline,        // Icône étoile vide (notation)
+      homeOutline,        // Icône accueil (footer)
+      listOutline,        // Icône liste (footer)
+      chatbubbleOutline   // Icône chat (footer)
+    });
+  }
 
   ngOnInit() {
   }
