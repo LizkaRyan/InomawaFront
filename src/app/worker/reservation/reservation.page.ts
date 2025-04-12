@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
+import {Router, RouterModule} from '@angular/router';
 import {
   IonBadge,
   IonButton,
@@ -22,7 +20,7 @@ import {TabWorkerComponent} from "../../shared/tab-worker/tab-worker.component";
   templateUrl: './reservation.page.html',
   styleUrls: ['./reservation.page.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonSelect, IonSelectOption, IonIcon, IonButton, IonTabBar, IonTabButton, IonBadge, IonFooter, TabWorkerComponent]
+  imports: [CommonModule, FormsModule, IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonSelect, IonSelectOption, IonIcon, IonButton, IonFooter, TabWorkerComponent]
 })
 export class ReservationPage implements OnInit {
   filterValue: string = 'Tout';
@@ -79,7 +77,7 @@ export class ReservationPage implements OnInit {
 
   reservationsFiltered=this.reservations.slice(1);
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
@@ -95,13 +93,13 @@ export class ReservationPage implements OnInit {
   }
 
   ignoreReservation(id: number) {
-    console.log('Ignoring reservation:', id);
-    // Implement ignore functionality
+      this.reservations.splice(0, 1);
+      this.reservationsFiltered=this.reservations.slice(1);
+      console.log(this.reservationsFiltered);
   }
 
   finishReservation(id: number) {
-    console.log('Finishing reservation:', id);
-    // Implement finish functionality
+    this.router.navigate(['/worker/done']);
   }
 
   filterList() {
@@ -115,5 +113,9 @@ export class ReservationPage implements OnInit {
         }
       );
     }
+  }
+
+  navigateWorking() {
+    this.router.navigate(['/worker/working']);
   }
 }

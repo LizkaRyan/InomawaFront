@@ -15,6 +15,11 @@ import {
 import { interval, Subscription } from 'rxjs';
 import {NavController} from "@ionic/angular";
 import {TabWorkerComponent} from "../../shared/tab-worker/tab-worker.component";
+import { addIcons } from 'ionicons';
+import {
+  arrowBackOutline,
+  timeOutline
+} from 'ionicons/icons';
 
 @Component({
   selector: 'app-working',
@@ -32,7 +37,12 @@ export class WorkingPage implements OnInit, OnDestroy {
   seconds: number = 52;
   timerSubscription?: Subscription;
 
-  constructor(private navCtrl: NavController) {}
+  constructor(private navCtrl: NavController) {
+    addIcons({
+      arrowBackOutline,  // Icône flèche retour
+      timeOutline       // Icône horloge
+    });
+  }
 
   ngOnInit() {
     // Start the timer
@@ -79,7 +89,7 @@ export class WorkingPage implements OnInit, OnDestroy {
   finishWork() {
     // Logic for completing the work
     console.log('Work finished');
-    this.navCtrl.navigateForward('/work-completed');
+    this.navCtrl.navigateForward('/worker/done');
   }
 
   ignoreWork() {
