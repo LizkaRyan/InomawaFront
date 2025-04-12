@@ -1,6 +1,16 @@
 import {Component, OnInit} from "@angular/core";
-import {IonBadge, IonButton, IonContent, IonIcon, IonTabBar, IonTabButton} from "@ionic/angular/standalone";
+import {
+  IonBadge,
+  IonButton,
+  IonContent,
+  IonFooter,
+  IonIcon, IonLabel,
+  IonTabBar,
+  IonTabButton,
+  IonTabs
+} from "@ionic/angular/standalone";
 import {CommonModule} from "@angular/common";
+import {TabWorkerComponent} from "../../shared/tab-worker/tab-worker.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +24,11 @@ import {CommonModule} from "@angular/common";
     IonTabButton,
     IonBadge,
     IonButton,
-    CommonModule
+    CommonModule,
+    IonFooter,
+    IonTabs,
+    IonLabel,
+    TabWorkerComponent
   ]
 })
 export class DashboardPage implements OnInit {

@@ -275,28 +275,3 @@ ion-content {
     }
   }
 }
-
-/* Tab Bar */
-.custom-tab-bar {
-  --background: #ffffff;
-  --border: none;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
-
-  ion-tab-button {
-    --color: #999;
-    --color-selected: #003366;
-
-    ion-badge {
-      --background: #4caf50;
-      --color: #fff;
-      position: absolute;
-      top: 5px;
-      right: calc(50% - 15px);
-      font-size: 10px;
-      padding: 2px 4px;
-      min-width: 16px;
-      height: 16px;
-      border-radius: 8px;
-    }
-  }
-}

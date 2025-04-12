@@ -37,11 +37,11 @@ export class ReservationPage implements OnInit {
       date: '18 Dec, 2024',
       price: '5 000 Ar/h',
       location: 'Lot 85 Ter Isotsoika',
-      image: 'assets/images/pipe-repair.jpg',
+      image: 'assets/images/issue/issue2.jpg',
       client: {
         name: 'Marie RASOA',
         role: 'Propriétaire',
-        avatar: 'assets/images/client1.jpg'
+        avatar: 'assets/images/avatar/marie-rasoa.jpg'
       }
     },
     {
@@ -52,11 +52,11 @@ export class ReservationPage implements OnInit {
       time: '15:00',
       price: '5 000 Ar/h',
       location: 'Lot ITB 59 Cité Itaosy',
-      image: 'assets/images/faucet-repair.jpg',
+      image: 'assets/images/issue/issue1.jpg',
       client: {
         name: 'Hery Falimanana',
         role: 'Gardien de maison',
-        avatar: 'assets/images/client2.jpg'
+        avatar: 'assets/images/avatar/Hery-rafalimanana.jpg'
       }
     },
     {
@@ -67,11 +67,11 @@ export class ReservationPage implements OnInit {
       time: '10:00',
       price: '15 000 Ar/h',
       location: 'Lot ITV 23 TER Ampasapito',
-      image: 'assets/images/ceiling-leak.jpg',
+      image: 'assets/images/issue/plafond.jpg',
       client: {
         name: 'LIOKA RAMARO',
         role: 'Propriétaire',
-        avatar: 'assets/images/client3.jpg'
+        avatar: 'assets/images/avatar/lioka-ramaro.jpg'
       }
     }
   ];
