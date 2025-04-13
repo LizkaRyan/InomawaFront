@@ -5,28 +5,32 @@ import {FormsModule} from '@angular/forms';
 import {Router} from "@angular/router";
 
 @Component({
-    selector: 'app-login-user',
-    templateUrl: './login-user.page.html',
-    styleUrls: ['./login-user.page.scss'],
-    standalone: true,
-    imports: [IonicModule, CommonModule, FormsModule]
+  selector: 'app-login-user',
+  templateUrl: './login-user.page.html',
+  styleUrls: ['./login-user.page.scss'],
+  standalone: true,
+  imports: [IonicModule, CommonModule, FormsModule]
 })
 export class LoginUserPage implements OnInit {
-    showPassword = false;
-    email:string="MarieRasoa@gmail.com"
-    password:string="Happy@easter"
+  showPassword = false;
+  email: string = "MarieRasoa@gmail.com"
+  password: string = "Happy@easter"
 
-    constructor(private router:Router) {
-    }
+  constructor(private router: Router) {
+  }
 
-    ngOnInit() {
-    }
+  ngOnInit() {
+  }
 
-    togglePasswordVisibility() {
-        this.showPassword = !this.showPassword;
-    }
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
 
-    loginUser() {
-        this.router.navigate(['/service']);
-    }
+  loginUser() {
+    this.router.navigate(['/service']);
+  }
+
+  goToInscription() {
+    this.router.navigate(['/inscription-customer']);
+  }
 }

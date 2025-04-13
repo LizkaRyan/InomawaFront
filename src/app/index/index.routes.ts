@@ -19,6 +19,10 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./login-worker/login-worker.page').then((m) => m.LoginWorkerPage),
       },
+      {
+        path: 'inscription-customer',
+        loadComponent: () => import('./inscription-customer/inscription-customer.page').then( m => m.InscriptionCustomerPage)
+      }
     ],
   }
 ,
