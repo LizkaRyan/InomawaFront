@@ -3,6 +3,8 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { addIcons } from 'ionicons';
+import { arrowBackOutline, mailOutline, lockClosedOutline, logInOutline, personAddOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-login-worker',
@@ -19,6 +21,13 @@ export class LoginWorkerPage implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+    addIcons({
+      arrowBackOutline,
+      mailOutline,
+      lockClosedOutline,
+      logInOutline,
+      personAddOutline,
+    });
   }
 
   togglePasswordVisibility() {
