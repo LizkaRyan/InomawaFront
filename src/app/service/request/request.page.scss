@@ -251,3 +251,74 @@ ion-content.problem-page {
 .other-month {
   color: #aaa;
 }
+
+.clock-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 280px;
+  margin: 20px 0;
+}
+
+.clock-face {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock-center {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #0078d7;
+}
+
+.hour-number, .minute-number {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transform-origin: center;
+  top: 50%;
+  left: 50%;
+  margin-top: -15px;
+  margin-left: -15px;
+  font-weight: 500;
+}
+
+.hour-number:hover, .minute-number:hover {
+  background-color: #0078d7;
+  color: white;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+.checkbox-container ion-label {
+  margin-left: 10px;
+}
+
+ion-header ion-toolbar {
+  --background: #d6ebff;
+}
+
+ion-content {
+  --background: #d6ebff;
+}
+
+ion-input {
+  cursor: pointer;
+}

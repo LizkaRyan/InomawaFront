@@ -4,10 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { Location } from '@angular/common';
 import {
   IonButton,
-  IonButtons,
+  IonButtons, IonCheckbox,
   IonContent,
-  IonFooter,
-  IonIcon, IonInput, IonLabel, IonModal, IonTextarea,
+  IonFooter, IonHeader,
+  IonIcon, IonInput, IonItem, IonLabel, IonModal, IonTextarea, IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
@@ -37,10 +37,25 @@ import {TabCustomerComponent} from "../../shared/tab-customer/tab-customer.compo
   templateUrl: './request.page.html',
   styleUrls: ['./request.page.scss'],
   standalone: true,
-  imports: [IonContent, CommonModule, FormsModule, IonButton, IonButtons, IonIcon, IonFooter, IonTextarea, IonInput, TabCustomerComponent, IonModal, IonLabel]
+  imports: [IonContent, CommonModule, FormsModule, IonButton, IonButtons, IonIcon, IonFooter, IonTextarea, IonInput, TabCustomerComponent, IonModal, IonLabel, IonItem, IonCheckbox, IonHeader, IonTitle, IonToolbar]
 })
 export class RequestPage implements OnInit {
   @ViewChild('calendarModal') calendarModal!: IonModal;
+  @ViewChild('timeModal') timeModal!: IonModal;
+
+  isTimeModalOpen = false;
+  selectedHour = '00';
+  selectedMinute = '00';
+  showHours = true;
+  anyTime = false;
+  displayTime = ''; // Pour afficher l'heure dans le champ texte
+
+  // Génération des heures correctement pour le cadran
+  hours = [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
+    0, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
+
+  // Pour les minutes, on affiche seulement les multiples de 5 pour plus de clarté
+  visibleMinutes = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55];
 
   problemDescription: string = '';
   selectedTime: string = '';
@@ -69,6 +84,7 @@ export class RequestPage implements OnInit {
 
   constructor(private router: Router,private location:Location) {
     this.generateCalendarDays();
+    this.updateDisplayTime();
     addIcons({
       chevronBackOutline,
       chevronForwardOutline,
@@ -88,6 +104,79 @@ export class RequestPage implements OnInit {
       closeCircle,
       timeOutline
     });
+  }
+
+  openTimeModal() {
+    this.isTimeModalOpen = true;
+    this.showHours = true;
+  }
+
+  closeTimeModal() {
+    this.isTimeModalOpen = false;
+  }
+
+  confirmTime() {
+    this.updateDisplayTime();
+    this.closeTimeModal();
+  }
+
+  updateDisplayTime() {
+    if (this.anyTime) {
+      this.displayTime = "N'importe quelle heure";
+    } else {
+      this.displayTime = `${this.selectedHour}:${this.selectedMinute}`;
+    }
+  }
+
+  handleAnyTimeChange() {
+    if (this.anyTime) {
+      this.displayTime = "N'importe quelle heure";
+    } else {
+      this.updateDisplayTime();
+    }
+  }
+
+  getHourPosition(hour: number): string {
+    // Position spéciale pour les heures 0-23, réparties sur deux cercles (intérieur et extérieur)
+    let angle;
+    let radius;
+
+    if (hour < 12 || hour === 0) {
+      // Cercle extérieur pour les heures 1-12 (avec 12 en haut)
+      angle = ((hour % 12) * 30 - 90) * (Math.PI / 180);
+      radius = 80; // Rayon plus grand pour le cercle extérieur
+    } else {
+      // Cercle intérieur pour les heures 13-23 et 0
+      angle = ((hour % 12) * 30 - 90) * (Math.PI / 180);
+      radius = 60; // Rayon plus petit pour le cercle intérieur
+    }
+
+    const x = Math.cos(angle) * radius;
+    const y = Math.sin(angle) * radius;
+
+    return `translate(${x}px, ${y}px)`;
+  }
+
+  getMinutePosition(minute: number): string {
+    // Les minutes sont réparties uniformément autour du cercle
+    const angle = (minute * 6 - 90) * (Math.PI / 180);
+    const radius = 80;
+
+    const x = Math.cos(angle) * radius;
+    const y = Math.sin(angle) * radius;
+
+    return `translate(${x}px, ${y}px)`;
+  }
+
+  selectHour(hour: number) {
+    this.selectedHour = hour < 10 ? '0' + hour : '' + hour;
+    this.showHours = false; // Basculer vers la sélection des minutes
+  }
+
+  selectMinute(minute: number) {
+    this.selectedMinute = minute < 10 ? '0' + minute : '' + minute;
+    // Une fois les minutes sélectionnées, on peut mettre à jour l'affichage
+    // mais on attend que l'utilisateur confirme
   }
 
   ngOnInit() {

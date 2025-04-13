@@ -17,9 +17,5 @@ export const routes: Routes = [
   {
     path: 'customer',
     loadChildren: () => import('./customer/customer.routes').then( m => m.routes)
-  },  {
-    path: 'date',
-    loadComponent: () => import('./date/date.page').then( m => m.DatePage)
   }
-
 ];

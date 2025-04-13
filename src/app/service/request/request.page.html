@@ -34,9 +34,11 @@
 
       <div class="form-group half">
         <label>Heure</label>
-        <div class="time-picker">
-          <ion-input type="text" placeholder="00:00 AM" [(ngModel)]="selectedTime"></ion-input>
-          <ion-icon name="time-outline"></ion-icon>
+        <div class="time-picker" (click)="openTimeModal()">
+          <ion-item>
+            <ion-input [(ngModel)]="displayTime" readonly ></ion-input>
+            <ion-icon name="time-outline"></ion-icon>
+          </ion-item>
         </div>
       </div>
     </div>
@@ -67,6 +69,47 @@
       </ion-button>
     </div>
   </div>
+
+  <ion-modal #timeModal [isOpen]="isTimeModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>{{ selectedHour }}:{{ selectedMinute }}</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="confirmTime()">FERMER</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <div class="clock-container">
+          <!-- Affichage du cadran des heures -->
+          <div class="clock-face" *ngIf="showHours">
+            <div class="clock-center"></div>
+            <div class="hour-number" *ngFor="let hour of hours"
+                 [style.transform]="getHourPosition(hour)"
+                 (click)="selectHour(hour)">
+              {{ hour }}
+            </div>
+          </div>
+
+          <!-- Affichage du cadran des minutes -->
+          <div class="clock-face" *ngIf="!showHours">
+            <div class="clock-center"></div>
+            <div class="minute-number" *ngFor="let minute of visibleMinutes"
+                 [style.transform]="getMinutePosition(minute)"
+                 (click)="selectMinute(minute)">
+              {{ minute }}
+            </div>
+          </div>
+        </div>
+
+        <div class="checkbox-container">
+          <ion-checkbox [(ngModel)]="anyTime" (ionChange)="handleAnyTimeChange()"></ion-checkbox>
+          <ion-label>N'importe quelle heure</ion-label>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 
   <ion-modal #calendarModal
              [initialBreakpoint]="0.5"
