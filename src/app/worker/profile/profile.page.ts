@@ -3,13 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import {
-  IonBadge,
   IonButton,
   IonButtons,
   IonContent, IonFooter,
   IonHeader,
   IonIcon, IonItem, IonLabel,
-  IonList, IonTabBar, IonTabButton, IonTabs,
+  IonList,
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
@@ -40,7 +39,7 @@ import {TabWorkerComponent} from "../../shared/tab-worker/tab-worker.component";
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonButton, IonIcon, IonList, IonItem, IonLabel, IonFooter, IonTabs, IonTabBar, IonTabButton, IonBadge, TabWorkerComponent]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonButton, IonIcon, IonList, IonItem, IonLabel, IonFooter, TabWorkerComponent]
 })
 export class ProfilePage implements OnInit {
 

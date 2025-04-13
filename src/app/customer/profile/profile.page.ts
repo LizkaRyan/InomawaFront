@@ -5,10 +5,9 @@ import {
   IonButton,
   IonButtons,
   IonContent, IonFooter,
-  IonHeader, IonIcon, IonItem, IonLabel, IonList, IonTabBar, IonTabButton, IonTabs,
+  IonHeader, IonIcon, IonItem, IonLabel, IonList,
   IonTitle,
   IonToolbar,
-  NavController
 } from '@ionic/angular/standalone';
 import {Router} from "@angular/router";
 import { addIcons } from 'ionicons';
@@ -38,7 +37,7 @@ import {TabCustomerComponent} from "../../shared/tab-customer/tab-customer.compo
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonButton, IonIcon, IonList, IonItem, IonLabel, IonFooter, IonTabs, IonTabBar, IonTabButton, TabCustomerComponent]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonButton, IonIcon, IonList, IonItem, IonLabel, IonFooter, TabCustomerComponent]
 })
 export class ProfilePage implements OnInit {
 

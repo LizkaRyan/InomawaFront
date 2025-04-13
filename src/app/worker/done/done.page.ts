@@ -2,13 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
-  IonBadge,
   IonButton,
   IonButtons,
   IonContent,
   IonFooter,
   IonHeader,
-  IonIcon, IonTabBar, IonTabButton, IonTabs,
+  IonIcon,
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
@@ -30,7 +29,7 @@ import {TabWorkerComponent} from "../../shared/tab-worker/tab-worker.component";
   templateUrl: './done.page.html',
   styleUrls: ['./done.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonButton, IonIcon, IonFooter, IonTabs, IonTabBar, IonTabButton, IonBadge, TabWorkerComponent]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonButton, IonIcon, IonFooter, TabWorkerComponent]
 })
 export class DonePage implements OnInit {
 

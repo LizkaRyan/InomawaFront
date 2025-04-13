@@ -1,13 +1,9 @@
 import {Component, OnInit} from "@angular/core";
 import {
-  IonBadge,
   IonButton,
   IonContent,
   IonFooter,
-  IonIcon, IonLabel,
-  IonTabBar,
-  IonTabButton,
-  IonTabs
+  IonIcon,
 } from "@ionic/angular/standalone";
 import {CommonModule} from "@angular/common";
 import {TabWorkerComponent} from "../../shared/tab-worker/tab-worker.component";
@@ -21,7 +17,6 @@ import {
   star
 } from 'ionicons/icons';
 import {Router} from "@angular/router";
-import {TabCustomerComponent} from "../../shared/tab-customer/tab-customer.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -35,7 +30,6 @@ import {TabCustomerComponent} from "../../shared/tab-customer/tab-customer.compo
     CommonModule,
     TabWorkerComponent,
     IonFooter,
-    TabCustomerComponent
   ]
 })
 export class DashboardPage implements OnInit {
