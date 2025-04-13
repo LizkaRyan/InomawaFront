@@ -16,3 +16,12 @@
   --ion-background-color: #c9e3ff;
   --ion-background-color-rgb: 201, 227, 255;
 }
+
+/* Ciblage spécifique pour votre sélecteur d'heure */
+.time-picker ion-item {
+  --background: #ffffff;
+}
+
+.time-picker ion-input {
+  --background: #ffffff;
+}

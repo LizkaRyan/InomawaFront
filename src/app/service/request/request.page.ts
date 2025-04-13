@@ -294,10 +294,11 @@ export class RequestPage implements OnInit {
     this.router.navigate(['/service/worker'], {
       state: {
         description: this.problemDescription,
-        date: this.selectedDate,
-        time: this.selectedTime,
+        date: this.formatDate(this.selectedDate),
+        time: this.displayTime,
         photos: this.selectedPhotos,
-        category:this.category
+        category:this.category,
+
       }
     });
   }

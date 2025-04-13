@@ -37,9 +37,11 @@ interface Worker {
   templateUrl: './worker.page.html',
   styleUrls: ['./worker.page.scss'],
   standalone: true,
-  imports: [IonContent, IonToolbar, CommonModule, FormsModule, IonButtons, IonButton, IonIcon, IonFooter, TabCustomerComponent]
+  imports: [IonContent, CommonModule, FormsModule, IonButtons, IonButton, IonIcon, IonFooter, TabCustomerComponent]
 })
 export class WorkerPage implements OnInit {
+  date:any;
+  time:any;
   workers: Worker[] = [
     {
       id: 1,
@@ -99,13 +101,17 @@ export class WorkerPage implements OnInit {
 
   ngOnInit() {
     this.category = history.state.category;
+    this.date = history.state.date;
+    this.time = history.state.time;
   }
 
   reserveWorker(worker: any) {
     this.router.navigate(['/service/resume'], {
       state: {
         worker:worker,
-        category:this.category
+        category:this.category,
+        date: this.date,
+        time: this.time
       }
     });
   }
@@ -114,7 +120,9 @@ export class WorkerPage implements OnInit {
     this.router.navigate(['/service/worker/'+id],{
       state: {
         worker:this.findWorkerById(id),
-        category:this.category
+        category:this.category,
+        date: this.date,
+        time: this.time
       }
     });
   }

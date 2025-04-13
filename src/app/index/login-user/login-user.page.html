@@ -11,13 +11,13 @@
   <div class="form-container">
     <div class="form-field">
       <div class="field-label">Email</div>
-      <ion-input type="email" placeholder="email" class="custom-input"></ion-input>
+      <ion-input type="email" [(ngModel)]="email" placeholder="email" class="custom-input"></ion-input>
     </div>
 
     <div class="form-field">
       <div class="field-label">Mot de passe</div>
       <div class="password-field">
-        <ion-input [type]="showPassword ? 'text' : 'password'" placeholder="au moins 8 caractère" class="custom-input"></ion-input>
+        <ion-input [(ngModel)]="password" [type]="showPassword ? 'text' : 'password'" placeholder="au moins 8 caractère" class="custom-input"></ion-input>
         <ion-icon [name]="showPassword ? 'eye-outline' : 'eye-off-outline'" (click)="togglePasswordVisibility()" class="password-icon"></ion-icon>
       </div>
     </div>

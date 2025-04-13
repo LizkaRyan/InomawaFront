@@ -46,7 +46,9 @@
       [(ngModel)]="newMessage"
       (keyup.enter)="sendMessage()"
     ></ion-input>
-
+    <button class="attachment-button" (click)="sendMessage()">
+      <ion-icon name="paper-plane-outline"></ion-icon>
+    </button>
     <button class="attachment-button">
       <ion-icon name="attach-outline"></ion-icon>
     </button>

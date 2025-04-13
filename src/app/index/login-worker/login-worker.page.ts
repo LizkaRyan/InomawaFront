@@ -13,6 +13,8 @@ import { Router } from '@angular/router';
 })
 export class LoginWorkerPage implements OnInit {
   showPassword = false;
+  email:string="RakotoSalomon@gmail.com"
+  password:string="Happy@easter"
 
   constructor(private router: Router) { }
 

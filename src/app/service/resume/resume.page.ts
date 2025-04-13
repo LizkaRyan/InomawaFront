@@ -73,6 +73,8 @@ export class ResumePage implements OnInit {
     this.serviceRequest.price = history.state.worker.price;
     this.serviceRequest.type = history.state.category.name;
     this.serviceRequest.image = history.state.category.image;
+    this.serviceRequest.date = history.state.date;
+    this.serviceRequest.time = history.state.time;
   }
 
   goBack() {

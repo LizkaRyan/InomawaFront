@@ -120,6 +120,8 @@ export class WorkerProfilePage implements OnInit {
       state: {
         worker: this.plumber,
         category: this.category,
+        date: history.state.date,
+        time: history.state.time
       },
     })
   }

@@ -13,7 +13,7 @@ import {
 } from '@ionic/angular/standalone';
 import {NavController} from "@ionic/angular";
 import { addIcons } from 'ionicons';
-import { arrowBack, ellipsisVertical, happyOutline, attachOutline } from 'ionicons/icons';
+import { arrowBack, ellipsisVertical, happyOutline, attachOutline,paperPlaneOutline } from 'ionicons/icons';
 
 interface Message {
   id: number;
@@ -95,7 +95,8 @@ export class DiscussionPage implements OnInit {
       arrowBack,
       ellipsisVertical,
       happyOutline,
-      attachOutline
+      attachOutline,
+      paperPlaneOutline
     });
   }
 
