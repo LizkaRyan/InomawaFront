@@ -106,7 +106,13 @@ export class WorkerProfilePage implements OnInit {
   }
 
   sendMessage() {
-    console.log('Send message');
+    const chat={
+      name: this.plumber.name,
+      avatar: this.plumber.image
+    }
+    this.router.navigate(['/customer/chat/discussion'],{
+      state: { chat: chat}
+    })
   }
 
   makeReservation() {
