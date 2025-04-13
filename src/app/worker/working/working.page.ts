@@ -1,32 +1,32 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Location } from '@angular/common';
 import {
-  IonBadge,
   IonButton,
   IonButtons,
   IonContent,
   IonFooter,
   IonHeader,
-  IonIcon, IonTabBar, IonTabButton, IonTabs,
+  IonIcon,
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
 import { interval, Subscription } from 'rxjs';
-import {NavController} from "@ionic/angular";
 import {TabWorkerComponent} from "../../shared/tab-worker/tab-worker.component";
 import { addIcons } from 'ionicons';
 import {
   arrowBackOutline,
   timeOutline
 } from 'ionicons/icons';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-working',
   templateUrl: './working.page.html',
   styleUrls: ['./working.page.scss'],
   standalone: true,
-    imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonButton, IonIcon, IonFooter, IonTabs, IonTabBar, IonTabButton, IonBadge, TabWorkerComponent]
+    imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonButton, IonIcon, IonFooter, TabWorkerComponent]
 })
 export class WorkingPage implements OnInit, OnDestroy {
 
@@ -36,8 +36,9 @@ export class WorkingPage implements OnInit, OnDestroy {
   minutes: number = 10;
   seconds: number = 52;
   timerSubscription?: Subscription;
+  reservation:any;
 
-  constructor(private navCtrl: NavController) {
+  constructor(private location: Location,private router:Router) {
     addIcons({
       arrowBackOutline,  // Icône flèche retour
       timeOutline       // Icône horloge
@@ -47,6 +48,7 @@ export class WorkingPage implements OnInit, OnDestroy {
   ngOnInit() {
     // Start the timer
     this.startTimer();
+    this.reservation = history.state.reservation;
   }
 
   ngOnDestroy() {
@@ -83,19 +85,21 @@ export class WorkingPage implements OnInit, OnDestroy {
   }
 
   goBack() {
-    this.navCtrl.back();
+    this.location.back();
   }
 
   finishWork() {
     // Logic for completing the work
     console.log('Work finished');
-    this.navCtrl.navigateForward('/worker/done');
+    this.router.navigate(['/worker/done'],{
+      state: { reservation: this.reservation },
+    });
   }
 
   ignoreWork() {
     // Logic for ignoring the work
     console.log('Work ignored');
-    this.navCtrl.navigateBack('/dashboard');
+    this.location.back();
   }
 
 }

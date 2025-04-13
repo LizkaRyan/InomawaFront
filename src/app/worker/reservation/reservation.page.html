@@ -22,46 +22,46 @@
   <div class="reservations-container">
     <!-- First Reservation with detailed view -->
     <div class="reservation-card extended">
-      <div class="reservation-header" (click)="navigateWorking()">
+      <div class="reservation-header" (click)="navigateWorking(reservations[0])">
         <h3>{{ reservations[0].serviceType }}</h3>
         <span class="status-badge" [ngClass]="reservations[0].status.replace(' ', '-')">
           {{ reservations[0].status }}
         </span>
       </div>
 
-      <div class="reservation-details" (click)="navigateWorking()">
-        <div class="detail-item" (click)="navigateWorking()">
+      <div class="reservation-details" (click)="navigateWorking(reservations[0])">
+        <div class="detail-item" (click)="navigateWorking(reservations[0])">
           <span class="label">Début à</span>
           <span class="value">{{ reservations[0].time }}</span>
         </div>
-        <div class="detail-item" (click)="navigateWorking()">
+        <div class="detail-item" (click)="navigateWorking(reservations[0])">
           <span class="label">Date</span>
           <span class="value">{{ reservations[0].date }}</span>
         </div>
-        <div class="detail-item" (click)="navigateWorking()">
+        <div class="detail-item" (click)="navigateWorking(reservations[0])">
           <span class="label">Fin à</span>
           <span class="value">{{ reservations[0].time }}</span>
         </div>
       </div>
 
-      <div class="price-info" (click)="navigateWorking()">
+      <div class="price-info" (click)="navigateWorking(reservations[0])">
         {{ reservations[0].price }}
       </div>
 
-      <div class="location-info" (click)="navigateWorking()">
+      <div class="location-info" (click)="navigateWorking(reservations[0])">
         <ion-icon name="location-outline"></ion-icon>
         <span>{{ reservations[0].location }}</span>
       </div>
 
-      <div class="service-image" (click)="navigateWorking()">
+      <div class="service-image" (click)="navigateWorking(reservations[0])">
         <img [src]="reservations[0].image" alt="Service image">
       </div>
 
-      <div class="client-info" (click)="navigateWorking()">
+      <div class="client-info" (click)="navigateWorking(reservations[0])">
         <div class="client-avatar">
           <img [src]="reservations[0].client.avatar" alt="Client">
         </div>
-        <div class="client-details" (click)="navigateWorking()">
+        <div class="client-details" (click)="navigateWorking(reservations[0])">
           <div class="client-name">{{ reservations[0].client.name }}</div>
           <div class="client-role">{{ reservations[0].client.role }}</div>
         </div>
@@ -82,7 +82,7 @@
         <ion-button fill="outline" color="danger" class="ignore-button" (click)="ignoreReservation(reservations[0].id)">
           Ignorer
         </ion-button>
-        <ion-button color="success" class="finish-button" (click)="finishReservation(reservations[0].id)">
+        <ion-button color="success" class="finish-button" (click)="finishReservation(reservations[0])">
           Terminée
         </ion-button>
       </div>

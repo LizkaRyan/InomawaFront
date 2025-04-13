@@ -98,12 +98,13 @@ export class ReservationPage implements OnInit {
       console.log(this.reservationsFiltered);
   }
 
-  finishReservation(id: number) {
-    this.router.navigate(['/worker/done']);
+  finishReservation(reservation: any) {
+    this.router.navigate(['/worker/done'],{
+      state: { reservation: reservation}
+    });
   }
 
   filterList() {
-    console.log("Filtered");
     if (this.filterValue === 'Tout') {
       this.reservationsFiltered = [...this.reservations].slice(1);
     } else {
@@ -115,7 +116,9 @@ export class ReservationPage implements OnInit {
     }
   }
 
-  navigateWorking() {
-    this.router.navigate(['/worker/working']);
+  navigateWorking(reservation: any) {
+    this.router.navigate(['/worker/working'],{
+      state: { reservation: reservation }
+    });
   }
 }
