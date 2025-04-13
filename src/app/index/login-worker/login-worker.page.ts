@@ -28,4 +28,10 @@ export class LoginWorkerPage implements OnInit {
   loginWorker() {
     this.router.navigate(['/worker']);
   }
+
+  goToInscription() {
+    this.router.navigate(['/inscription-customer'],{
+      state: {urlRedirection:"/login/worker"}
+    })
+  }
 }

@@ -20,20 +20,22 @@ import {Router} from "@angular/router";
 })
 export class InscriptionCustomerPage implements OnInit {
 
+  urlRedirection:string="";
+
   constructor(
     private router: Router
   ) { }
 
   ngOnInit() {
-
+    this.urlRedirection = history.state.urlRedirection;
   }
 
   onSubmit() {
-    this.router.navigate(['/login/user']);
+    this.router.navigate([this.urlRedirection]);
   }
 
   goToLogin() {
-    this.router.navigate(['/login/user']);
+    this.router.navigate([this.urlRedirection]);
   }
 
 }

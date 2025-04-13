@@ -31,6 +31,8 @@ export class LoginUserPage implements OnInit {
   }
 
   goToInscription() {
-    this.router.navigate(['/inscription-customer']);
+    this.router.navigate(['/inscription-customer'],{
+      state: {urlRedirection:"/login/user"}
+    });
   }
 }

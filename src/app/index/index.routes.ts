@@ -25,9 +25,4 @@ export const routes: Routes = [
       }
     ],
   }
-,
-  {
-    path: 'index',
-    loadComponent: () => import('./index/index.page').then( m => m.IndexPage)
-  }
 ];
