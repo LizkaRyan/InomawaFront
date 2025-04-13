@@ -5,7 +5,7 @@
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <div class="title">{{category.name}}</div>
+    <div class="title">{{ category.name }}</div>
     <div class="spacer"></div>
   </div>
 
@@ -23,8 +23,11 @@
     <div class="date-time-group">
       <div class="form-group half">
         <label>Date</label>
-        <div class="date-picker">
-          <ion-input type="text" placeholder="dd/mm/yy" [(ngModel)]="selectedDate"></ion-input>
+        <div class="date-picker" (click)="openCalendar()">
+          <ion-input
+            readonly
+            [value]="formatDate(selectedDate)"
+          ></ion-input>
           <ion-icon name="calendar-outline"></ion-icon>
         </div>
       </div>
@@ -64,6 +67,58 @@
       </ion-button>
     </div>
   </div>
+
+  <ion-modal #calendarModal
+             [initialBreakpoint]="0.5"
+             [breakpoints]="[0, 0.5, 1]"
+             [backdropDismiss]="true"
+             [cssClass]="'calendar-modal'">
+    <ng-template>
+      <div class="calendar-container">
+        <!-- En-tête du calendrier avec les contrôles de navigation -->
+        <div class="calendar-header">
+          <ion-button fill="clear" (click)="previousMonth()">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+          </ion-button>
+          <div class="month-year">{{ currentMonthYear }}</div>
+          <ion-button fill="clear" (click)="nextMonth()">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-button>
+        </div>
+
+        <!-- Jours de la semaine -->
+        <div class="calendar-weekdays">
+          <div class="weekday" *ngFor="let day of weekdays">{{ day }}</div>
+        </div>
+
+        <!-- Jours du mois -->
+        <div class="calendar-days">
+          <!-- Jours du mois précédent -->
+          <div
+            class="day other-month"
+            *ngFor="let day of previousMonthDays">
+            {{ day }}
+          </div>
+
+          <!-- Jours du mois courant -->
+          <div
+            class="day"
+            *ngFor="let day of currentMonthDays"
+            [class.selected]="isSelectedDay(day)"
+            (click)="selectDay(day)">
+            {{ day }}
+          </div>
+
+          <!-- Jours du mois suivant -->
+          <div
+            class="day other-month"
+            *ngFor="let day of nextMonthDays">
+            {{ day }}
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ion-modal>
 </ion-content>
 
 <ion-footer>
