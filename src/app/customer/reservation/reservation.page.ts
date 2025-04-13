@@ -7,7 +7,7 @@ import {
   IonContent, IonFooter,
   IonHeader,
   IonIcon, IonItem,
-  IonSearchbar, IonSelect, IonSelectOption, IonTabBar, IonTabButton, IonTabs,
+  IonSelect, IonSelectOption,
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
@@ -25,6 +25,7 @@ import {
   documentTextOutline,
   chatbubbleEllipsesOutline
 } from 'ionicons/icons';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-reservation',
@@ -42,6 +43,7 @@ export class ReservationPage implements OnInit {
       statusClass: 'en-cours',
       title: 'Réparation plomberie',
       debut: '08:30',
+      tel:'+261341234567',
       date: '16 Dec, 2024',
       fin: '11:00',
       price: '5 000 Ar/h',
@@ -57,6 +59,7 @@ export class ReservationPage implements OnInit {
       title: 'Tuyau cassé',
       date: '18 Dec, 2024',
       debut: '08:30',
+      tel:'+261341234567',
       heure: '09:30',
       fin: '11:00',
       technician: 'RAKOTO SALOMON',
@@ -73,6 +76,7 @@ export class ReservationPage implements OnInit {
       title: 'Fuite d\'eau robinet',
       date: '21 Nov, 2024',
       heure: '10:19',
+      tel:'+261341234567',
       fin: '11:00',
       debut: '08:30',
       technician: 'Détails',
@@ -89,7 +93,7 @@ export class ReservationPage implements OnInit {
 
   reservationFiltered:any=this.reservations;
 
-  constructor() {
+  constructor(private router:Router) {
     addIcons({
       searchOutline,      // Icône de recherche
       locationOutline,    // Icône de localisation
@@ -108,8 +112,8 @@ export class ReservationPage implements OnInit {
 
   }
 
-  callTechnician(id: number) {
-    console.log('Appeler technicien pour reservation', id);
+  callTechnician(reservation:any) {
+    // await Plugins.CallNumber.call({ number: reservation.tel, bypassAppChooser: true });
   }
 
   messageTechnician(id: number) {
@@ -121,14 +125,6 @@ export class ReservationPage implements OnInit {
     console.log('Ignorer reservation', id);
   }
 
-  reprendreRendezVous(id: number) {
-    console.log('Reprendre rendez-vous pour', id);
-  }
-
-  filterReservations(filter: string) {
-    console.log('Filtrer par:', filter);
-  }
-
   filterList() {
     if (this.filterValue === 'Tout') {
       this.reservationFiltered = [...this.reservations];
@@ -137,5 +133,11 @@ export class ReservationPage implements OnInit {
         reservation => reservation.status === this.filterValue
       );
     }
+  }
+
+  workDone(reservation:any) {
+    this.router.navigate(['/service/done'],{
+      state: {reservation: reservation}
+    })
   }
 }
