@@ -7,7 +7,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let chat of chatList" (click)="openChat(chat.id)" class="chat-item">
+    <ion-item *ngFor="let chat of chatList" (click)="openChat(chat)" class="chat-item">
       <ion-avatar slot="start">
         <img [src]="chat.avatar" alt="{{ chat.name }}">
       </ion-avatar>

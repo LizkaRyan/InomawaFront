@@ -22,6 +22,10 @@ export const routes: Routes = [
       {
         path: '',
         loadComponent: () => import('./chat/menu/menu.page').then( m => m.MenuPage)
+      },
+      {
+        path: 'discussion',
+        loadComponent: () => import('./chat/discussion/discussion.page').then( m => m.DiscussionPage)
       }
     ]
   }

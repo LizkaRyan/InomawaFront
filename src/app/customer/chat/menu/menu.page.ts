@@ -101,9 +101,10 @@ export class MenuPage implements OnInit {
 
   ngOnInit() {}
 
-  openChat(chatId: number) {
-    console.log('Opening chat with ID:', chatId);
-    // Navigation logic would go here
+  openChat(chat:any) {
+    this.router.navigate(['/customer/chat/discussion'],{
+      state: { chat:chat }
+    })
   }
 
 }
