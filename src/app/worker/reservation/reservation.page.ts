@@ -88,8 +88,13 @@ export class ReservationPage implements OnInit {
   }
 
   messageClient(client: any) {
-    console.log('Messaging client:', client.name);
-    // Implement message functionality
+    const chat={
+      name: client.name,
+      avatar: client.avatar
+    }
+    this.router.navigate(['/worker/chat/discussion'],{
+      state: { chat: chat }
+    })
   }
 
   ignoreReservation(id: number) {
