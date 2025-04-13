@@ -57,6 +57,7 @@ export class DonePage implements OnInit {
   }
 
   ngOnInit() {
+    this.taskInfo.clientName = history.state.reservation.client.name;
   }
 
   goBack() {
