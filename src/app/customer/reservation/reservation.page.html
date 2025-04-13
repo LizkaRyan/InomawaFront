@@ -20,7 +20,7 @@
   <div class="reservations-container">
     <!-- Reservation en cours -->
     <div class="reservation-card" *ngFor="let reservation of reservationFiltered">
-      <div class="reservation-header" [ngClass]="reservation.statusClass">
+      <div class="reservation-header" [ngClass]="reservation.statusClass" (click)="workDone(reservation)">
         <div class="reservation-title">{{ reservation.title }}</div>
         <div class="reservation-status" *ngIf="reservation.status === 'en cours'">
           <span>en cours</span>
@@ -82,7 +82,7 @@
                 <ion-icon name="call"></ion-icon>
                 Appeler
               </ion-button>
-              <ion-button color="light" (click)="messageTechnician(reservation.id)">
+              <ion-button color="light" (click)="messageTechnician(reservation)">
                 <ion-icon name="chatbubble-outline"></ion-icon>
                 Message
               </ion-button>
@@ -91,36 +91,34 @@
 
           <!-- Pour reservation terminée -->
           <ng-container *ngIf="reservation.status === 'terminé'">
-            <div (click)="workDone(reservation)">
-              <div class="time-info">
-                <div>Date: {{ reservation.date }}</div>
-                <div>Heure: {{ reservation.heure }}</div>
+            <div class="time-info" (click)="workDone(reservation)">
+              <div>Date: {{ reservation.date }}</div>
+              <div>Heure: {{ reservation.heure }}</div>
+            </div>
+            <div class="technician-info" (click)="workDone(reservation)">
+              <div class="technician">
+                <ion-avatar>
+                  <img src="{{reservation.technicianImage}}">
+                </ion-avatar>
+                <div>{{ reservation.technician }}</div>
               </div>
-              <div class="technician-info">
-                <div class="technician">
-                  <ion-avatar>
-                    <img src="{{reservation.technicianImage}}">
-                  </ion-avatar>
-                  <div>{{ reservation.technician }}</div>
-                </div>
-                <div class="rating">
-                  <div class="stars">
-                    <ion-icon name="star" color="warning"></ion-icon>
-                    {{ reservation.rating }}
-                  </div>
+              <div class="rating">
+                <div class="stars">
+                  <ion-icon name="star" color="warning"></ion-icon>
+                  {{ reservation.rating }}
                 </div>
               </div>
-              <div class="action-buttons">
-                <ion-button color="primary" (click)="callTechnician(reservation)">
-                  <ion-icon name="call"></ion-icon>
-                  Appeler
-                </ion-button>
-                <ion-button color="light" (click)="messageTechnician(reservation.id)">
-                  <ion-icon name="chatbubble-outline"></ion-icon>
-                  Message
-                  <ion-badge *ngIf="reservation.hasMessages" color="primary">{{ reservation.messageCount }}</ion-badge>
-                </ion-button>
-              </div>
+            </div>
+            <div class="action-buttons">
+              <ion-button color="primary" (click)="callTechnician(reservation)">
+                <ion-icon name="call"></ion-icon>
+                Appeler
+              </ion-button>
+              <ion-button color="light" (click)="messageTechnician(reservation)">
+                <ion-icon name="chatbubble-outline"></ion-icon>
+                Message
+                <ion-badge *ngIf="reservation.hasMessages" color="primary">{{ reservation.messageCount }}</ion-badge>
+              </ion-button>
             </div>
           </ng-container>
         </div>

@@ -40,4 +40,8 @@ export class TabCustomerComponent  implements OnInit {
   navigateToReservation() {
     this.router.navigateByUrl('/customer/reservations');
   }
+
+  navigateToChat() {
+    this.router.navigateByUrl('/customer/chat');
+  }
 }

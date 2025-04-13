@@ -113,11 +113,17 @@ export class ReservationPage implements OnInit {
   }
 
   callTechnician(reservation:any) {
-    // await Plugins.CallNumber.call({ number: reservation.tel, bypassAppChooser: true });
+
   }
 
-  messageTechnician(id: number) {
-    console.log('Envoyer message pour reservation', id);
+  messageTechnician(reservation:any) {
+    const chat={
+      name: reservation.technician,
+      avatar: reservation.technicianImage
+    }
+    this.router.navigate(['/customer/chat/discussion'],{
+      state: { chat: chat}
+    })
   }
 
   ignoreReservation(id: number, event: Event) {
@@ -136,8 +142,10 @@ export class ReservationPage implements OnInit {
   }
 
   workDone(reservation:any) {
-    this.router.navigate(['/service/done'],{
-      state: {reservation: reservation}
-    })
+    if(reservation.status === 'terminé'){
+      this.router.navigate(['/service/done'],{
+        state: {reservation: reservation}
+      })
+    }
   }
 }

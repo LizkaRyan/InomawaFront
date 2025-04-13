@@ -41,4 +41,7 @@ export class TabWorkerComponent  implements OnInit {
     this.router.navigateByUrl('/worker/reservation');
   }
 
+  navigateToChat() {
+    this.router.navigateByUrl('/worker/chat');
+  }
 }
