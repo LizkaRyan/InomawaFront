@@ -21,6 +21,19 @@ export const routes: Routes = [
         path: 'working',
         loadComponent: () => import('./working/working.page').then( m => m.WorkingPage)
       },
+      {
+        path: 'chat',
+        children:[
+          {
+            path: '',
+            loadComponent: () => import('./chat/menu/menu.page').then( m => m.MenuPage)
+          },
+          // {
+          //   path: 'discussion',
+          //   loadComponent: () => import('./chat/discussion/discussion.page').then( m => m.MenuPage)
+          // },
+        ]
+      },
     ],
   },
   {
